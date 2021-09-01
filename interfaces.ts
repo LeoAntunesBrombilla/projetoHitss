@@ -17,6 +17,12 @@ export interface People {
   url: string;
 }
 
+/*
+export interface Peoples {
+  data: Array<People>;
+}
+*/
+
 export interface Peoples {
   [index: number]: {
     name: string;
