@@ -17,4 +17,4 @@ export interface Character {
   url: string;
 }
 
-export type Peoples = Array<Character>;
+export type ListCharacters = Array<Character>;
