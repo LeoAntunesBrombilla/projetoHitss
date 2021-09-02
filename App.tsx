@@ -2,7 +2,9 @@ import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
 import Home from './src/containers/Home';
-import {store} from './src/redux';
+import {configureStore} from './src/redux';
+
+const {store} = configureStore();
 
 const App: React.FC = () => {
   return (
