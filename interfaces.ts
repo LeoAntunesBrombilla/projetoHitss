@@ -8,14 +8,16 @@ export interface People {
   birth_year: string;
   gender: string;
   homeworld: string;
-  films: [];
-  species: [];
-  vehicles: [];
-  starshpis: [];
+  films: string[];
+  species: string[];
+  vehicles: string[];
+  starshpis: string[];
   created: string;
   edited: string;
   url: string;
 }
+
+// export type Peoples = Array<People>
 
 /*
 export interface Peoples {

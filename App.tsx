@@ -1,11 +1,31 @@
+import React from 'react';
+import {SafeAreaView, StatusBar} from 'react-native';
+import {Provider} from 'react-redux';
+import Home from './src/containers/Home';
+import {store} from './src/redux';
+
+const App: React.FC = () => {
+  return (
+    <Provider store={store}>
+      <StatusBar />
+      <SafeAreaView>
+        <Home />
+      </SafeAreaView>
+    </Provider>
+  );
+};
+
+export default App;
+
+/*
 import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import {People, Peoples} from './interfaces';
 import axios, {AxiosResponse} from 'axios';
 
 const App = () => {
-  const [peopleData, setPeopleData] = useState<People[]>([]);
-  const arrPeoples: Peoples[] = [];
+  const [arrPeoples] = useState<People[]>([]);
+  // const arrPeoples: Peoples[] = [];
 
   const example = {
     name: 'C-3PO',
@@ -37,21 +57,24 @@ const App = () => {
     axios
       .get<People[]>(`https://swapi.dev/api/people/1`)
       .then((response: AxiosResponse) => {
-        setPeopleData(response.data);
-        let character = peopleData;
-        arrPeoples.push(character);
+        arrPeoples.push(response.data);
         console.warn(arrPeoples);
       })
       .catch(error => console.log(error));
-    }, []); //falta dependencia do useEffect!
+  }, []); //falta dependencia do useEffect!
+
+  console.warn(arrPeoples);
 
   return (
     <>
       <View>
-        <Text>oi</Text>
+        {arrPeoples.map(people => (
+          <Text>{people.name}</Text>
+        ))}
       </View>
     </>
   );
 };
 
 export default App;
+*/
