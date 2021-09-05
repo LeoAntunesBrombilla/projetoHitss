@@ -1,11 +1,11 @@
-import {CharactersType} from './types';
+import {CharactersListType} from './types';
 
 const actions = {
   requestList: () => ({
-    type: CharactersType.GET_CHARACTERS,
+    type: CharactersListType.GET_CHARACTERS,
   }),
   addFavorite: () => ({
-    type: CharactersType.ADD_FAVORITE,
+    type: CharactersListType.ADD_FAVORITE,
   }),
 };
 

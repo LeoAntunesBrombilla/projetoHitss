@@ -2,7 +2,7 @@ import {
   CharacterListAction,
   CharacterListState,
   CharacterListReducer,
-  CharactersType,
+  CharactersListType,
 } from './types';
 
 const initialState: CharacterListState = {
@@ -29,7 +29,7 @@ const requestData: CharacterListReducer = state => ({
 });
 
 const CharacterListMap = new Map([
-  [CharactersType.GET_CHARACTERS, requestData],
+  [CharactersListType.GET_CHARACTERS, requestData],
 ]);
 
 const reducer = (
