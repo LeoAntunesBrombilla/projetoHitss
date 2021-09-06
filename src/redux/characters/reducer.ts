@@ -1,11 +1,11 @@
 import {
   CharacterListAction,
-  CharacterListState,
   CharacterListReducer,
+  Character,
   CharactersListType,
 } from './types';
 
-const initialState: CharacterListState = {
+const initialState: Character = {
   name: '',
   height: '',
   mass: '',
@@ -33,9 +33,9 @@ const CharacterListMap = new Map([
 ]);
 
 const reducer = (
-  state: CharacterListState = initialState,
-  action: CharacterListAction<CharacterListState>,
-): CharacterListState => {
+  state: Character = initialState,
+  action: CharacterListAction<Character>,
+): Character => {
   const characterListReducer = CharacterListMap.get(action.type);
 
   if (characterListReducer) return characterListReducer(state, action);
