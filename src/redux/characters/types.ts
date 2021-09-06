@@ -1,6 +1,7 @@
-export enum CharactersListTypes {
-  GET_CHARACTERS = '@@CHARACTERS/GET_CHARACTERS',
-  // ADD_FAVORITE = '@@CHARACTERS/ADD_FAVORITE',
+export enum CharacterListTypes {
+  REQUEST_LIST = '@@CHARACTERS/REQUEST_LIST',
+  ADD_FAVORITE = '@@CHARACTERS/ADD_FAVORITE',
+  SET_CHARACTER_LISTS = '@@CHARACTERS/SET_CHARACTER_LISTS',
 }
 
 export type Character = {
@@ -22,10 +23,16 @@ export type Character = {
   url: string;
 };
 
-export type Characters = Array<Character>;
+export type CharacterLists = Array<Character>;
+
+export interface CharacterListState {
+  isLoading: boolean;
+  characterLists: CharacterLists;
+  error?: string;
+}
 
 export type CharacterListAction<Payload> = {
-  type: CharactersListTypes;
+  type: CharacterListTypes;
   payload: Payload;
 };
 

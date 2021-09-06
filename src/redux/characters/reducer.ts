@@ -1,41 +1,45 @@
+import {characterListActions} from '.';
+
 import {
   CharacterListAction,
   CharacterListReducer,
-  Character,
-  CharactersListType,
+  CharacterListState,
+  CharacterListTypes,
 } from './types';
 
-const initialState: Character = {
-  name: '',
-  height: '',
-  mass: '',
-  hair_color: '',
-  skin_color: '',
-  eye_color: '',
-  birth_year: '',
-  gender: '',
-  homeworld: '',
-  films: [],
-  species: [],
-  vehicles: [],
-  starshpis: [],
-  created: '',
-  edited: '',
-  url: '',
+const initialState: CharacterListState = {
+  isLoading: false,
+  characterLists: [],
+  error: undefined,
 };
 
 const requestData: CharacterListReducer = state => ({
   ...state,
+  isLoading: true,
+  error: undefined,
 });
 
+const setCharacterLists: CharacterListReducer = (state, action) => {
+  const {payload} = action as ReturnType<
+    typeof characterListActions.setCharacterLists
+  >;
+
+  return {
+    ...state,
+    characterLists: payload.characterLists,
+    isLoading: false,
+    error: undefined,
+  };
+};
+
 const CharacterListMap = new Map([
-  [CharactersListType.GET_CHARACTERS, requestData],
+  [CharacterListTypes.REQUEST_LIST, requestData],
 ]);
 
 const reducer = (
-  state: Character = initialState,
-  action: CharacterListAction<Character>,
-): Character => {
+  state: CharacterListState = initialState,
+  action: CharacterListAction<CharacterListState>,
+): CharacterListState => {
   const characterListReducer = CharacterListMap.get(action.type);
 
   if (characterListReducer) return characterListReducer(state, action);
