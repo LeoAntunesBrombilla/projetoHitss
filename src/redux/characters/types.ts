@@ -1,4 +1,4 @@
-export enum CharactersListType {
+export enum CharactersListTypes {
   GET_CHARACTERS = '@@CHARACTERS/GET_CHARACTERS',
   // ADD_FAVORITE = '@@CHARACTERS/ADD_FAVORITE',
 }
@@ -25,7 +25,7 @@ export type Character = {
 export type Characters = Array<Character>;
 
 export type CharacterListAction<Payload> = {
-  type: CharactersListType;
+  type: CharactersListTypes;
   payload: Payload;
 };
 
