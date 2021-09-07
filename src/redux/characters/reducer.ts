@@ -8,8 +8,8 @@ import {
 } from './types';
 
 const initialState: CharacterListState = {
-  isLoading: false,
   characterLists: [],
+  isLoading: false,
   error: undefined,
 };
 
@@ -32,7 +32,18 @@ const setCharacterLists: CharacterListReducer = (state, action) => {
   };
 };
 
+const setError: CharacterListReducer = (state, action) => {
+  const {payload} = action as ReturnType<typeof characterListActions.setError>;
+
+  return {
+    ...state,
+    isLoading: false,
+    error: payload.error,
+  };
+};
+
 const CharacterListMap = new Map([
+  [CharacterListTypes.SET_ERROR, setError],
   [CharacterListTypes.REQUEST_LIST, requestData],
   [CharacterListTypes.SET_CHARACTER_LISTS, setCharacterLists],
 ]);
@@ -43,7 +54,9 @@ const reducer = (
 ): CharacterListState => {
   const characterListReducer = CharacterListMap.get(action.type);
 
-  if (characterListReducer) return characterListReducer(state, action);
+  if (characterListReducer) {
+    return characterListReducer(state, action);
+  }
 
   return state;
 };

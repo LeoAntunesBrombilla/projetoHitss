@@ -1,4 +1,8 @@
-import {CharacterListTypes, CharacterLists, CharacterListAction} from './types';
+import {
+  CharacterListTypes,
+  CharacterListState,
+  CharacterListAction,
+} from './types';
 
 const actions = {
   setError: (error?: string): CharacterListAction<{error?: string}> => ({
@@ -9,8 +13,8 @@ const actions = {
     type: CharacterListTypes.REQUEST_LIST,
   }),
   setCharacterLists: (
-    characterLists: CharacterLists,
-  ): CharacterListAction<{characterLists: CharacterLists}> => ({
+    characterLists: CharacterListState,
+  ): CharacterListAction<{characterLists: CharacterListState}> => ({
     type: CharacterListTypes.SET_CHARACTER_LISTS,
     payload: {characterLists},
   }),

@@ -24,7 +24,11 @@ export type Character = {
   url: string;
 };
 
-export type CharacterLists = Array<Character>;
+export interface IndividualCharacter extends Character {
+  id: string;
+}
+
+export type CharacterLists = Array<IndividualCharacter>;
 
 export interface CharacterListState {
   isLoading: boolean;
@@ -38,6 +42,6 @@ export type CharacterListAction<Payload> = {
 };
 
 export type CharacterListReducer = (
-  state: Character,
-  payload: CharacterListAction<Character>,
-) => Character;
+  state: CharacterListState,
+  payload: CharacterListAction<CharacterListState>,
+) => CharacterListState;
