@@ -12,7 +12,7 @@ export function* requestLists() {
     if (serverCharacterLists) {
       yield put(characterListActions.setCharacterLists(serverCharacterLists));
     }
-  } catch (err) {
+  } catch (err: unknown) {
     yield put(characterListActions.setError(err.message));
   }
 }
