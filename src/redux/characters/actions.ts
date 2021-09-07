@@ -1,6 +1,10 @@
 import {CharacterListTypes, CharacterLists, CharacterListAction} from './types';
 
 const actions = {
+  setError: (error?: string): CharacterListAction<{error?: string}> => ({
+    type: CharacterListTypes.SET_ERROR,
+    payload: {error},
+  }),
   requestList: () => ({
     type: CharacterListTypes.REQUEST_LIST,
   }),
