@@ -3,6 +3,8 @@ import {takeLatest, put, call} from 'redux-saga/effects';
 import todoApi from './repository';
 import {CharacterListTypes} from '../characters/types';
 
+//TODO Make saga createList
+
 export function* requestLists() {
   try {
     yield put(characterListActions.setError());
