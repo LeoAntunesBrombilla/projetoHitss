@@ -34,6 +34,7 @@ const setCharacterLists: CharacterListReducer = (state, action) => {
 
 const CharacterListMap = new Map([
   [CharacterListTypes.REQUEST_LIST, requestData],
+  [CharacterListTypes.SET_CHARACTER_LISTS, setCharacterLists],
 ]);
 
 const reducer = (

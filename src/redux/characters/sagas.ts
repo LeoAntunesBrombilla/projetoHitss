@@ -1,8 +1,20 @@
+import {characterListActions} from '.';
+import {takeLatest, put, call} from 'redux-saga/effects';
 import todoApi from './repository';
 import {CharacterListTypes} from '../characters/types';
-import {put, call} from 'redux-saga/effects';
 
-export default function* characterListSagas(action): any {
-  let jsonResponse = yield call(todoApi, action.payload);
-  yield put({type: CharacterListTypes.REQUEST_LIST, payload: jsonResponse});
+export function* requestLists() {
+  try {
+    yield put(characterListActions.setError());
+
+    const serverCharacterLists = yield call(todoApi.requestLists);
+
+    if (serverCharacterLists) {
+      yield put(characterListActions.setCharacterLists(serverCharacterLists));
+    }
+  } catch (err) {
+    yield put(characterListActions.setError(err.message));
+  }
 }
+
+export default [takeLatest(CharacterListTypes.REQUEST_LIST, requestLists)];
