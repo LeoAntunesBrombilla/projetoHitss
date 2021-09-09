@@ -9,7 +9,7 @@ export function* requestLists() {
   try {
     yield put(characterListActions.setError());
 
-    // problema aqui! linha 16 no yield call
+    // problema aqui! linha 18 no yield call
     /*
     'yield' expression implicitly results in an 
     'any' type because its containing generator 
@@ -22,7 +22,7 @@ export function* requestLists() {
     }
   } catch (err) {
     /* 
-    problema aqui também (linha 25) mesmo eu colocando
+    problema aqui também (linha 28) mesmo eu colocando
     tipo unknown ele reclama q err.message é tipo unknown kkk
     */
     yield put(characterListActions.setError(err.message));
