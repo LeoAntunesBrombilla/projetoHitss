@@ -1,8 +1,9 @@
 export enum CharacterListTypes {
   REQUEST_LIST = '@@CHARACTERS/REQUEST_LIST',
-  ADD_FAVORITE = '@@CHARACTERS/ADD_FAVORITE',
+  // ADD_FAVORITE = '@@CHARACTERS/ADD_FAVORITE',
   SET_CHARACTER_LISTS = '@@CHARACTERS/SET_CHARACTER_LISTS',
   SET_ERROR = '@@CHARACTERS/SET_ERROR',
+  SET_PAGE_INFO = '@@CHARACTERS/SET_PAGE_INFO',
 }
 
 export type Character = {
@@ -24,16 +25,15 @@ export type Character = {
   url: string;
 };
 
-export interface IndividualCharacter extends Character {
-  id: string;
-}
-
-export type CharacterLists = Array<IndividualCharacter>;
+export type CharacterLists = Array<Character>;
 
 export interface CharacterListState {
   isLoading: boolean;
+  next: string | null;
+  previous: string | null;
   characterLists: CharacterLists;
   error?: string;
+  count: number;
 }
 
 export type CharacterListAction<Payload> = {

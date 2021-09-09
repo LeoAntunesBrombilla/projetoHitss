@@ -2,20 +2,17 @@
 
 import api from '../../api';
 import {Character} from './types';
-import {AxiosResponse} from 'axios';
 
-//TODO
-/*
-Vai precisar de id? para paginação?
-*/
+export interface CharacterResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Character[];
+}
 
-/*
-const requestLists = (characterId: string) =>
-  api.get<Character[]>(`people/${characterId}`).then((response: AxiosResponse) => {
-    console.warn(response.data);
-  });
-*/
+const requestCharacters = async (page: string = '2') => {
+  const response = await api.get<CharacterResponse>(`people/?page=${page}`);
+  return response.data;
+};
 
-api.get<Character[]>(`people/1`).then((response: AxiosResponse) => {
-  console.warn(response.data);
-});
+export {requestCharacters};

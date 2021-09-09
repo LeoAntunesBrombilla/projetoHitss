@@ -11,6 +11,9 @@ const initialState: CharacterListState = {
   characterLists: [],
   isLoading: false,
   error: undefined,
+  previous: null,
+  next: null,
+  count: Number.NaN,
 };
 
 const requestData: CharacterListReducer = state => ({
@@ -32,6 +35,21 @@ const setCharacterLists: CharacterListReducer = (state, action) => {
   };
 };
 
+const setPageInfo: CharacterListReducer = (state, action) => {
+  const {
+    payload: {count, previous, next},
+  } = action as ReturnType<typeof characterListActions.setPageInfo>;
+
+  return {
+    ...state,
+    isLoading: false,
+    error: undefined,
+    count,
+    previous,
+    next,
+  };
+};
+
 const setError: CharacterListReducer = (state, action) => {
   const {payload} = action as ReturnType<typeof characterListActions.setError>;
 
@@ -46,6 +64,7 @@ const CharacterListMap = new Map([
   [CharacterListTypes.SET_ERROR, setError],
   [CharacterListTypes.REQUEST_LIST, requestData],
   [CharacterListTypes.SET_CHARACTER_LISTS, setCharacterLists],
+  [CharacterListTypes.SET_PAGE_INFO, setPageInfo],
 ]);
 
 const reducer = (

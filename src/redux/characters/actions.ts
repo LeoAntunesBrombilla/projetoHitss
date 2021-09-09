@@ -14,9 +14,23 @@ const actions = {
     type: CharacterListTypes.SET_CHARACTER_LISTS,
     payload: {characterLists},
   }),
+  setPageInfo: (payload: {
+    count: number;
+    next: string | null;
+    previous: string | null;
+  }): CharacterListAction<{
+    count: number;
+    next: string | null;
+    previous: string | null;
+  }> => ({
+    type: CharacterListTypes.SET_PAGE_INFO,
+    payload,
+  }),
+  /*
   addFavorite: () => ({
     type: CharacterListTypes.ADD_FAVORITE,
   }),
+  */
 };
 
 export default actions;

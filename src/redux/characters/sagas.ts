@@ -3,8 +3,6 @@ import {takeLatest, put, call} from 'redux-saga/effects';
 import * as sagaApi from './repository';
 import {CharacterListTypes} from '../characters/types';
 
-//TODO Make saga createList
-
 export function* requestLists() {
   try {
     yield put(characterListActions.setError());
@@ -15,10 +13,18 @@ export function* requestLists() {
     'any' type because its containing generator 
     lacks a return-type annotation.
     */
-    const serverCharacterLists = yield call(sagaApi.requestLists);
+    const {count, next, previous, results}: sagaApi.CharacterResponse =
+      yield call(sagaApi.requestCharacters);
 
-    if (serverCharacterLists) {
-      yield put(characterListActions.setCharacterLists(serverCharacterLists));
+    if (results) {
+      yield put(characterListActions.setCharacterLists(results));
+      yield put(
+        characterListActions.setPageInfo({
+          previous,
+          next, //setar aqui!
+          count,
+        }),
+      );
     }
   } catch (err) {
     /* 
