@@ -15,7 +15,11 @@ const Home: React.FC = () => {
   return (
     <SafeAreaView>
       {charactersList.map(character => {
-        return <Text key={character.name}>{character.name}</Text>;
+        return (
+          <>
+            <Text key={character.name}>{character.name}</Text>
+          </>
+        );
       })}
     </SafeAreaView>
   );

@@ -7,21 +7,16 @@ export function* requestLists() {
   try {
     yield put(characterListActions.setError());
 
-    // problema aqui! linha 18 no yield call
-    /*
-    'yield' expression implicitly results in an 
-    'any' type because its containing generator 
-    lacks a return-type annotation.
-    */
     const {count, next, previous, results}: sagaApi.CharacterResponse =
       yield call(sagaApi.requestCharacters);
 
-    if (results) {
+    if (results && next) {
+      const nextNumber = next.replace(/\D/g, '');
       yield put(characterListActions.setCharacterLists(results));
       yield put(
         characterListActions.setPageInfo({
           previous,
-          next, //setar aqui!
+          next: nextNumber, //setar aqui!
           count,
         }),
       );
