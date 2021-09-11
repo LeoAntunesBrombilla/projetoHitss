@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, Text, Button} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {characterListActions} from '../redux/characters';
 import * as selectors from '../redux/characters/selectors';
@@ -7,6 +7,10 @@ import * as selectors from '../redux/characters/selectors';
 const Home: React.FC = () => {
   const dispatch = useDispatch();
   const charactersList = useSelector(selectors.getCharacterList);
+  const nextPage = useSelector(selectors.getNextPage);
+  const seeNextPage = () => {
+    console.warn(nextPage);
+  };
 
   useEffect(() => {
     dispatch(characterListActions.requestList());
@@ -21,6 +25,7 @@ const Home: React.FC = () => {
           </>
         );
       })}
+      <Button onPress={seeNextPage} title="Prox" />
     </SafeAreaView>
   );
 };

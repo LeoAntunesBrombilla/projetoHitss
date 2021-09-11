@@ -22,10 +22,6 @@ export function* requestLists() {
       );
     }
   } catch (err) {
-    /* 
-    problema aqui também (linha 28) mesmo eu colocando
-    tipo unknown ele reclama q err.message é tipo unknown kkk
-    */
     yield put(characterListActions.setError(err.message));
   }
 }

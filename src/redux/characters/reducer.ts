@@ -16,6 +16,7 @@ const initialState: CharacterListState = {
   count: Number.NaN,
 };
 
+// requestList
 const requestData: CharacterListReducer = state => ({
   ...state,
   isLoading: true,
