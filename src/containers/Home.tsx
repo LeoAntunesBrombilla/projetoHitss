@@ -7,16 +7,22 @@ import * as selectors from '../redux/characters/selectors';
 const Home: React.FC = () => {
   const dispatch = useDispatch();
   const charactersList = useSelector(selectors.getCharacterList);
-  const next = useSelector(selectors.getNextPage);
-  // const previous = useSelector(selectors.getPreviousPage);
+  let next = useSelector(selectors.getNextPage);
+  /*
+  const previous = useSelector(selectors.getPreviousPage);
   const testing = () => {
     console.warn(next);
     // console.warn(previous);
   };
-
+  */
   useEffect(() => {
     dispatch(characterListActions.requestCharacters());
   }, [dispatch]);
+
+  const proxPagina = (next: string | null) => {
+    if (next) dispatch(characterListActions.requestCharacters(next));
+    return null;
+  };
 
   return (
     <SafeAreaView>
@@ -27,7 +33,7 @@ const Home: React.FC = () => {
           </>
         );
       })}
-      <Button onPress={testing} title="Prox" />
+      <Button onPress={() => proxPagina(next)} title="Proxima Pagina" />
     </SafeAreaView>
   );
 };

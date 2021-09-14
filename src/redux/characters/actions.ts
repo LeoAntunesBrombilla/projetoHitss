@@ -5,8 +5,9 @@ const actions = {
     type: CharacterListTypes.SET_ERROR,
     payload: {error},
   }),
-  requestCharacters: () => ({
+  requestCharacters: (urlPath: string = '1') => ({
     type: CharacterListTypes.REQUEST_CHARACTERS,
+    payload: urlPath,
   }),
   setCharacterLists: (
     characterLists: CharacterLists,
