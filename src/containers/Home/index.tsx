@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, Text, Button} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {characterListActions} from '../redux/characters';
-import * as selectors from '../redux/characters/selectors';
+import {characterListActions} from '../../redux/characters';
+import * as selectors from '../../redux/characters/selectors';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
   const charactersList = useSelector(selectors.getCharacterList);
-  let next = useSelector(selectors.getNextPage);
+  const next = useSelector(selectors.getNextPage);
   /*
   const previous = useSelector(selectors.getPreviousPage);
   const testing = () => {
@@ -19,8 +19,10 @@ const Home: React.FC = () => {
     dispatch(characterListActions.requestCharacters());
   }, [dispatch]);
 
-  const proxPagina = (next: string | null) => {
-    if (next) dispatch(characterListActions.requestCharacters(next));
+  const proxPagina = () => {
+    if (next) {
+      dispatch(characterListActions.requestCharacters(next));
+    }
     return null;
   };
 
@@ -33,7 +35,7 @@ const Home: React.FC = () => {
           </>
         );
       })}
-      <Button onPress={() => proxPagina(next)} title="Proxima Pagina" />
+      <Button onPress={proxPagina} title="Proxima Pagina" />
     </SafeAreaView>
   );
 };
