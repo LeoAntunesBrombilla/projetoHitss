@@ -10,7 +10,7 @@ export interface CharacterResponse {
   results: Character[];
 }
 
-const requestCharacters = async (page: string = '1') => {
+const requestCharacters = async (page: string = '2') => {
   const response = await api.get<CharacterResponse>(`people/?page=${page}`);
   return response.data;
 };

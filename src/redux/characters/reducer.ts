@@ -63,7 +63,7 @@ const setError: CharacterListReducer = (state, action) => {
 
 const CharacterListMap = new Map([
   [CharacterListTypes.SET_ERROR, setError],
-  [CharacterListTypes.REQUEST_LIST, requestData],
+  [CharacterListTypes.REQUEST_CHARACTERS, requestData],
   [CharacterListTypes.SET_CHARACTER_LISTS, setCharacterLists],
   [CharacterListTypes.SET_PAGE_INFO, setPageInfo],
 ]);

@@ -3,7 +3,7 @@ import {takeLatest, put, call} from 'redux-saga/effects';
 import * as sagaApi from './repository';
 import {CharacterListTypes} from '../characters/types';
 
-export function* requestLists() {
+export function* requestCharacters() {
   try {
     yield put(characterListActions.setError());
 
@@ -11,12 +11,12 @@ export function* requestLists() {
       yield call(sagaApi.requestCharacters);
 
     if (results && next) {
-      const nextNumber = next.replace(/\D/g, '');
+      let nextPageNumber = next.replace(/\D/g, '');
       yield put(characterListActions.setCharacterLists(results));
       yield put(
         characterListActions.setPageInfo({
           previous,
-          next: nextNumber, //setar aqui!
+          next: nextPageNumber, //setar aqui!
           count,
         }),
       );
@@ -26,4 +26,6 @@ export function* requestLists() {
   }
 }
 
-export default [takeLatest(CharacterListTypes.REQUEST_LIST, requestLists)];
+export default [
+  takeLatest(CharacterListTypes.REQUEST_CHARACTERS, requestCharacters),
+];

@@ -7,13 +7,15 @@ import * as selectors from '../redux/characters/selectors';
 const Home: React.FC = () => {
   const dispatch = useDispatch();
   const charactersList = useSelector(selectors.getCharacterList);
-  const nextPage = useSelector(selectors.getNextPage);
-  const seeNextPage = () => {
-    console.warn(nextPage);
+  const next = useSelector(selectors.getNextPage);
+  // const previous = useSelector(selectors.getPreviousPage);
+  const testing = () => {
+    console.warn(next);
+    // console.warn(previous);
   };
 
   useEffect(() => {
-    dispatch(characterListActions.requestList());
+    dispatch(characterListActions.requestCharacters());
   }, [dispatch]);
 
   return (
@@ -25,7 +27,7 @@ const Home: React.FC = () => {
           </>
         );
       })}
-      <Button onPress={seeNextPage} title="Prox" />
+      <Button onPress={testing} title="Prox" />
     </SafeAreaView>
   );
 };

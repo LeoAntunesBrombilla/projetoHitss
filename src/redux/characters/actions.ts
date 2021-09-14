@@ -5,8 +5,8 @@ const actions = {
     type: CharacterListTypes.SET_ERROR,
     payload: {error},
   }),
-  requestList: () => ({
-    type: CharacterListTypes.REQUEST_LIST,
+  requestCharacters: () => ({
+    type: CharacterListTypes.REQUEST_CHARACTERS,
   }),
   setCharacterLists: (
     characterLists: CharacterLists,
