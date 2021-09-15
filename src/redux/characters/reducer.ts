@@ -16,8 +16,7 @@ const initialState: CharacterListState = {
   count: Number.NaN,
 };
 
-// requestList
-const requestData: CharacterListReducer = state => ({
+const requestCharacters: CharacterListReducer = state => ({
   ...state,
   isLoading: true,
   error: undefined,
@@ -63,7 +62,7 @@ const setError: CharacterListReducer = (state, action) => {
 
 const CharacterListMap = new Map([
   [CharacterListTypes.SET_ERROR, setError],
-  [CharacterListTypes.REQUEST_CHARACTERS, requestData],
+  [CharacterListTypes.REQUEST_CHARACTERS, requestCharacters],
   [CharacterListTypes.SET_CHARACTER_LISTS, setCharacterLists],
   [CharacterListTypes.SET_PAGE_INFO, setPageInfo],
 ]);
