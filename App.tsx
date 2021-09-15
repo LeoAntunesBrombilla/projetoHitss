@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
-import Home from './src/containers/Home';
+import Home from './src/components/Home';
 import {configureStore} from './src/redux';
 
 const {store} = configureStore();
