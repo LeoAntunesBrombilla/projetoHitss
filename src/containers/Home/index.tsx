@@ -8,13 +8,8 @@ const Home: React.FC = () => {
   const dispatch = useDispatch();
   const charactersList = useSelector(selectors.getCharacterList);
   const next = useSelector(selectors.getNextPage);
-  /*
   const previous = useSelector(selectors.getPreviousPage);
-  const testing = () => {
-    console.warn(next);
-    // console.warn(previous);
-  };
-  */
+
   useEffect(() => {
     dispatch(characterListActions.requestCharacters());
   }, [dispatch]);
@@ -26,16 +21,23 @@ const Home: React.FC = () => {
     return null;
   };
 
+  const prevPagina = () => {
+    if (previous) {
+      dispatch(characterListActions.requestCharacters(previous));
+    }
+  };
+
   return (
     <SafeAreaView>
       {charactersList.map(character => {
         return (
           <>
-            <Text key={character.name}>{character.name}</Text>
+            <Text key={character.birth_year}>{character.name}</Text>
           </>
         );
       })}
       <Button onPress={proxPagina} title="Proxima Pagina" />
+      <Button onPress={prevPagina} title="Pagina Anterior" />
     </SafeAreaView>
   );
 };

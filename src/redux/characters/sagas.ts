@@ -13,12 +13,13 @@ export function* requestCharacters(
       yield call(sagaApi.requestCharacters, action.payload);
 
     if (results && next) {
-      let nextPageNumber = next.replace(/\D/g, '');
+      const previousPageNumber = previous?.replace(/\D/g, '') || '';
+      const nextPageNumber = next.replace(/\D/g, '') || '';
       yield put(characterListActions.setCharacterLists(results));
       yield call(sagaApi.requestCharacters);
       yield put(
         characterListActions.setPageInfo({
-          previous,
+          previous: previousPageNumber,
           next: nextPageNumber, //setar aqui!
           count,
         }),
