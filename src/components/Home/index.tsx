@@ -39,8 +39,15 @@ const Home: React.FC = () => {
           </>
         );
       })}
-      <PaperButton onPress={proxPagina} title={'Proxima Pagina'} />
-      <PaperButton onPress={prevPagina} title={'Pagina Anterior'} />
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+        }}>
+        <PaperButton onPress={proxPagina} title={'Proxima Pagina'} />
+        <PaperButton onPress={prevPagina} title={'Pagina Anterior'} />
+      </View>
     </View>
   );
 };
