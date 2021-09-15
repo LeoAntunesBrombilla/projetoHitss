@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text} from 'react-native';
 import PaperTitle from '../title/index';
+import PaperButton from '../button/index';
 import {useDispatch, useSelector} from 'react-redux';
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
@@ -38,8 +39,8 @@ const Home: React.FC = () => {
           </>
         );
       })}
-      <Button onPress={proxPagina} title="Proxima Pagina" />
-      <Button onPress={prevPagina} title="Pagina Anterior" />
+      <PaperButton onPress={proxPagina} title={'Proxima Pagina'} />
+      <PaperButton onPress={prevPagina} title={'Pagina Anterior'} />
     </View>
   );
 };
