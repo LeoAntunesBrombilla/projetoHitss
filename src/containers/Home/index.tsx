@@ -1,8 +1,5 @@
 import React, {useEffect} from 'react';
-import {View} from 'react-native';
-import PaperTitle from '../title/index';
-import PaperButton from '../button/index';
-import PaperDrawer from '../drawer/index';
+import {SafeAreaView, Text, Button} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
@@ -31,25 +28,17 @@ const Home: React.FC = () => {
   };
 
   return (
-    <View>
-      <PaperTitle text={'Lista de Personagens'} alignCenter={true} />
+    <SafeAreaView>
       {charactersList.map(character => {
         return (
           <>
-            <PaperDrawer key={character.birth_year} label={character.name} />
+            <Text key={character.birth_year}>{character.name}</Text>
           </>
         );
       })}
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-        }}>
-        <PaperButton onPress={prevPagina} title={'Pagina Anterior'} />
-        <PaperButton onPress={proxPagina} title={'Proxima Pagina'} />
-      </View>
-    </View>
+      <Button onPress={proxPagina} title="Proxima Pagina" />
+      <Button onPress={prevPagina} title="Pagina Anterior" />
+    </SafeAreaView>
   );
 };
 
