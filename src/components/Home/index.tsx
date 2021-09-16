@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import PaperTitle from '../title/index';
 import PaperButton from '../button/index';
+import PaperDrawer from '../drawer/index';
 import {useDispatch, useSelector} from 'react-redux';
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
@@ -35,7 +36,7 @@ const Home: React.FC = () => {
       {charactersList.map(character => {
         return (
           <>
-            <Text key={character.birth_year}>{character.name}</Text>
+            <PaperDrawer key={character.birth_year} label={character.name} />
           </>
         );
       })}
@@ -45,8 +46,8 @@ const Home: React.FC = () => {
           flexDirection: 'row',
           justifyContent: 'center',
         }}>
-        <PaperButton onPress={proxPagina} title={'Proxima Pagina'} />
         <PaperButton onPress={prevPagina} title={'Pagina Anterior'} />
+        <PaperButton onPress={proxPagina} title={'Proxima Pagina'} />
       </View>
     </View>
   );
