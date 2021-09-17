@@ -1,21 +1,11 @@
 import React from 'react';
-import {Button as PaperButton} from 'react-native-paper';
+import {Button} from './styles';
 
 interface Props {
-  onPress: () => void;
+  onPress(): void;
   title: string;
-  icon?: string;
-  uppercase?: boolean;
 }
 
-const Button = (props: Props) => {
-  const {onPress, title, icon, uppercase} = props;
-
-  return (
-    <PaperButton onPress={onPress} icon={icon}>
-      {uppercase ? title.toLocaleUpperCase() : title}
-    </PaperButton>
-  );
-};
-
-export default Button;
+export function PaginationButton(props: Props) {
+  return <Button onPress={props.onPress} title={props.title} />;
+}

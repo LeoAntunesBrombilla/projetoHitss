@@ -1,10 +1,12 @@
 import React, {useEffect} from 'react';
 import {View, Text} from 'react-native';
 import PaperTitle from '../title/index';
-import PaperButton from '../button/index';
+import {PaginationButton} from '../button/index';
 import {useDispatch, useSelector} from 'react-redux';
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
+
+//TODO remover todos os imports de react-native-paper em seguida remover do projeto
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -45,8 +47,13 @@ const Home: React.FC = () => {
           flexDirection: 'row',
           justifyContent: 'center',
         }}>
-        <PaperButton onPress={prevPagina} title={'Pagina Anterior'} />
-        <PaperButton onPress={proxPagina} title={'Proxima Pagina'} />
+        <PaginationButton onPress={proxPagina} title="Proxima Pagina" />
+        <PaginationButton onPress={prevPagina} title="Prev Pagina" />
+
+        {/*
+          <Button onPress={prevPagina} title={'Pagina Anterior'} />
+          <Button onPress={proxPagina} label={'Proxima Pagina'} />
+          */}
       </View>
     </View>
   );
