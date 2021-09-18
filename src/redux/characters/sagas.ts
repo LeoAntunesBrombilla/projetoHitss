@@ -25,7 +25,7 @@ export function* requestCharacters(
         }),
       );
     }
-  } catch (err) {
+  } catch (err: any) {
     yield put(characterListActions.setError(err.message));
   }
 }
