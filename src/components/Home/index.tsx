@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView, FlatList} from 'react-native';
 import PaperTitle from '../title/index';
 import {Button} from '../button/index';
 import {useDispatch, useSelector} from 'react-redux';
@@ -32,46 +32,45 @@ const Home: React.FC = () => {
   };
 
   return (
-    <View>
-      <PaperTitle text={'Lista de Personagens'} alignCenter={true} />
-      {charactersList.map(character => {
-        return (
-          <>
-            <Text key={character.birth_year}> {character.name} </Text>
-          </>
-        );
-      })}
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-        }}>
+    <SafeAreaView style={styles.container}>
+      <PaperTitle text={'Lista de Personagens'} />
+      <FlatList
+        data={charactersList}
+        renderItem={({item}) => (
+          <Text
+            style={{
+              fontSize: 20,
+              textAlign: 'center',
+              fontWeight: '700',
+              padding: 10,
+            }}
+            key={item.birth_year}>
+            {item.name}
+          </Text>
+        )}
+      />
+
+      <View style={styles.buttonsContainer}>
         <View style={styles.buttonsContainer}>
-          <Button
-            onPress={prevPagina}
-            title={'Página Anterior'}
-            color={'black'}
-          />
+          <Button onPress={prevPagina} title={'Página Anterior'} />
           <Button onPress={proxPagina} title="Página Seguinte" />
         </View>
-
-        {/*
-          <Button onPress={prevPagina} title={'Pagina Anterior'} />
-          <Button onPress={proxPagina} label={'Proxima Pagina'} />
-          */}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'space-between',
+  },
   buttonsContainer: {
     display: 'flex',
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    marginTop: 10,
+    padding: 2,
   },
 });
 

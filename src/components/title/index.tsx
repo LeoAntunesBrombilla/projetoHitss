@@ -7,12 +7,8 @@ interface Props {
 }
 
 const Title = (props: Props) => {
-  const {text, alignCenter} = props;
-  return (
-    <PaperTitle style={{textAlign: alignCenter ? 'center' : 'auto'}}>
-      {text}
-    </PaperTitle>
-  );
+  const {text} = props;
+  return <PaperTitle>{text}</PaperTitle>;
 };
 
 export default Title;
