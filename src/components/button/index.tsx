@@ -9,10 +9,10 @@ interface Props extends ButtonProps {
 export const Button = (props: Props) => {
   return (
     <PaginationButton
-      color={props.color}
+      color={'black'}
       onPress={props.onPress}
       title={props.title}
-      textAling={props.textAling || 'center'}
+      textAling={'center'}
       borderRadius={props.borderRadius}
     />
   );
