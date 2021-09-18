@@ -1,8 +1,12 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, Text, Button} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
+import PaperTitle from '../title/';
+import {Button} from '../button/';
 import {useDispatch, useSelector} from 'react-redux';
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
+
+//TODO remover todos os imports de react-native-paper em seguida remover do projeto
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -28,18 +32,47 @@ const Home: React.FC = () => {
   };
 
   return (
-    <SafeAreaView>
+    <View>
+      <PaperTitle text={'Lista de Personagens'} alignCenter={true} />
       {charactersList.map(character => {
         return (
           <>
-            <Text key={character.birth_year}>{character.name}</Text>
+            <Text key={character.birth_year}> {character.name} </Text>
           </>
         );
       })}
-      <Button onPress={proxPagina} title="Proxima Pagina" />
-      <Button onPress={prevPagina} title="Pagina Anterior" />
-    </SafeAreaView>
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+        }}>
+        <View style={styles.buttonsContainer}>
+          <Button
+            onPress={prevPagina}
+            title={'Página Anterior'}
+            color={'black'}
+          />
+          <Button onPress={proxPagina} title="Página Seguinte" />
+        </View>
+
+        {/*
+          <Button onPress={prevPagina} title={'Pagina Anterior'} />
+          <Button onPress={proxPagina} label={'Proxima Pagina'} />
+          */}
+      </View>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  buttonsContainer: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginTop: 10,
+  },
+});
 
 export default Home;
