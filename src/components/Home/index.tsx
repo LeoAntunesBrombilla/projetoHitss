@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import PaperTitle from '../title/index';
-import {PaginationButton} from '../button/index';
+import {Button} from '../button/index';
 import {useDispatch, useSelector} from 'react-redux';
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
@@ -47,8 +47,14 @@ const Home: React.FC = () => {
           flexDirection: 'row',
           justifyContent: 'center',
         }}>
-        <PaginationButton onPress={proxPagina} title="Proxima Pagina" />
-        <PaginationButton onPress={prevPagina} title="Prev Pagina" />
+        <View style={styles.buttonsContainer}>
+          <Button
+            onPress={prevPagina}
+            title={'Página Anterior'}
+            color={'black'}
+          />
+          <Button onPress={proxPagina} title="Página Seguinte" />
+        </View>
 
         {/*
           <Button onPress={prevPagina} title={'Pagina Anterior'} />
@@ -58,5 +64,15 @@ const Home: React.FC = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  buttonsContainer: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginTop: 10,
+  },
+});
 
 export default Home;

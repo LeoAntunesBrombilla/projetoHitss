@@ -1,11 +1,19 @@
 import React from 'react';
-import {Button} from './styles';
+import {ButtonProps, PaginationButton} from './styles';
 
-interface Props {
+interface Props extends ButtonProps {
   onPress(): void;
   title: string;
 }
 
-export function PaginationButton(props: Props) {
-  return <Button onPress={props.onPress} title={props.title} />;
-}
+export const Button = (props: Props) => {
+  return (
+    <PaginationButton
+      color={props.color}
+      onPress={props.onPress}
+      title={props.title}
+      textAling={props.textAling || 'center'}
+      borderRadius={props.borderRadius}
+    />
+  );
+};
