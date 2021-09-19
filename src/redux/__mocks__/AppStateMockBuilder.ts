@@ -1,6 +1,6 @@
 import {PersistState} from 'redux-persist';
 
-import {CharacterListState} from '../characters/types';
+import {CharacterListState} from '@redux/characters/types';
 
 import {initialAppState} from './initialAppState.mock';
 
