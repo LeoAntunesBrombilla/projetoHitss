@@ -36,7 +36,7 @@ describe('Fluxo da store', () => {
     .spyOn(reduxPersist, 'persistStore')
     .mockReturnValue(mockPersistStoreReturn);
 
-  test('deve configurar a saga corretamente instanciando as sagas e retornando o persistor e a store', () => {
+  test('deve configurar a saga corretamente', () => {
     const {persistor, store} = configureStore();
     const sagaMiddleware = createSagaMiddleware.mock.results[0].value;
 

@@ -19,7 +19,7 @@ export type Character = {
   films: string[];
   species: string[];
   vehicles: string[];
-  starshpis: string[];
+  starships: string[];
   created: string;
   edited: string;
   url: string;
