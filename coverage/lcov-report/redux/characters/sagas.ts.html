@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">88.89% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/10</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">88.89% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/10</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -91,8 +91,7 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -106,12 +105,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,7 +127,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {characterListActions} from '.';
 import {takeLatest, put, call} from 'redux-saga/effects';
-import * as sagaApi from './repository';
+import * as repository from './repository';
 import {CharacterListTypes} from '../characters/types';
 &nbsp;
 export function* requestCharacters(
@@ -138,15 +136,14 @@ export function* requestCharacters(
   try {
     yield put(characterListActions.setError());
 &nbsp;
-    const {count, next, previous, results}: sagaApi.CharacterResponse =
-      yield call(sagaApi.requestCharacters, action.payload);
+    const {count, next, previous, results}: repository.CharacterResponse =
+      yield call(repository.requestCharacters, action.payload);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (results &amp;&amp; next) {</span>
-      const previousPageNumber = <span class="cstat-no" title="statement not covered" >previous?.replace(/\D/g, '') || '';</span>
-      const nextPageNumber = <span class="cstat-no" title="statement not covered" >next.replace(/\D/g, '') || '';</span>
-<span class="cstat-no" title="statement not covered" >      yield put(characterListActions.setCharacterLists(results));</span>
-<span class="cstat-no" title="statement not covered" >      yield call(sagaApi.requestCharacters);</span>
-<span class="cstat-no" title="statement not covered" >      yield put(</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (results &amp;&amp; next) {
+      const previousPageNumber = previous?.replace(/\D/g, '') || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+      const nextPageNumber = next.replace(/\D/g, '') || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+      yield put(characterListActions.setCharacterLists(results));
+      yield put(
         characterListActions.setPageInfo({
           previous: previousPageNumber,
           next: nextPageNumber, //setar aqui!
@@ -169,7 +166,7 @@ export default [
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Sep 22 2021 07:26:59 GMT-0300 (Brasilia Standard Time)
+                at Wed Sep 22 2021 09:28:53 GMT-0300 (Brasilia Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

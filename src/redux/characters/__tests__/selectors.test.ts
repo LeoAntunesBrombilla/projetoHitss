@@ -13,20 +13,14 @@ describe('Character Selector', () => {
       characterLists: [mockCharacter],
       next: '3',
       previous: '1',
-      count: 80,
+      count: 82,
     })
     .build();
 
   const getCharacterList = [
     'getCharacterList',
     selectors.getCharacterList(mockState),
-    {
-      isLoading: false,
-      characterLists: [mockCharacter],
-      next: '2',
-      previous: '1',
-      count: 82,
-    },
+    [mockCharacter],
   ];
 
   const getNextPage = ['getNextPage', selectors.getNextPage(mockState), '3'];

@@ -15,19 +15,17 @@ describe('Character Action', () => {
   const requestCharacters = [
     'requestCharacters',
     actions.requestCharacters(),
-    {type: CharacterListTypes.REQUEST_CHARACTERS},
+    {type: CharacterListTypes.REQUEST_CHARACTERS, payload: '1'},
   ];
 
-  /*
   const setPageInfo = [
     'setPageInfo',
-    actions.setPageInfo(9, '', ''),
+    actions.setPageInfo({count: 82, next: '3', previous: '1'}),
     {
       type: CharacterListTypes.SET_PAGE_INFO,
-      payload: {count: 9, next: '', previous: ''},
+      payload: {count: 82, next: '3', previous: '1'},
     },
   ];
-  */
 
   const setCharacterLists = [
     'setCharactersLists',
@@ -38,7 +36,12 @@ describe('Character Action', () => {
     },
   ];
 
-  test.each([setError, requestCharacters, setCharacterLists])(
+  test.each([
+    setError,
+    requestCharacters,
+    setPageInfo,
+    setCharacterLists,
+  ] as Array<[string, typeof actions, any]>)(
     'deve retornar as actions corretas %s',
     (describe, action, expected) => {
       expect(action).toEqual(expected);

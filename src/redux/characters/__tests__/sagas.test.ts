@@ -4,6 +4,7 @@ import {characterListActions} from '../';
 import {CharacterBuildMock} from '../__mocks__/CharacterBuildMock.mock';
 
 import * as sagas from '../sagas';
+import * as repository from '../repository';
 
 const character = new CharacterBuildMock().withName('Nome').build();
 
@@ -14,10 +15,25 @@ describe('Character Sagas', () => {
 
     expect(gen.next().value).toEqual(put(characterListActions.setError()));
 
-    expect(gen.next().value).toEqual(call(sagas.requestCharacters));
+    expect(gen.next().value).toEqual(
+      call(repository.requestCharacters, action.payload),
+    );
 
-    expect(gen.next([character]).value).toEqual(
+    const response = {
+      count: 82,
+      next: 'https://swapi.dev/api/people/?page=3',
+      previous: 'https://swapi.dev/api/people/?page=1',
+      results: [character],
+    };
+
+    expect(gen.next(response).value).toEqual(
       put(characterListActions.setCharacterLists([character])),
+    );
+
+    expect(gen.next().value).toEqual(
+      put(
+        characterListActions.setPageInfo({previous: '1', next: '3', count: 82}),
+      ),
     );
 
     expect(gen.next().done).toBe(true);

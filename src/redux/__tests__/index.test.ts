@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import * as redux from 'redux';
 import * as reduxPersist from 'redux-persist';
-import * as reduxSaga from 'redux-saga';
+import * as reduxSaga from '@redux-saga/core';
 
 import {configureStore} from '../store';
 
@@ -16,9 +16,7 @@ describe('Fluxo da store', () => {
   };
 
   const persistReducer = jest.spyOn(reduxPersist, 'persistReducer');
-
   const createSagaMiddleware = jest.spyOn(reduxSaga, 'default');
-
   const createStore = jest.spyOn(redux, 'createStore');
   const applyMiddleware = jest.spyOn(redux, 'applyMiddleware');
 
@@ -38,6 +36,7 @@ describe('Fluxo da store', () => {
 
   test('deve configurar a saga corretamente', () => {
     const {persistor, store} = configureStore();
+    console.log(createSagaMiddleware.mock.results);
     const sagaMiddleware = createSagaMiddleware.mock.results[0].value;
 
     expect(persistReducer).toHaveBeenCalledWith(persistConfig, rootReducer);
