@@ -1,7 +1,10 @@
 import styled from 'styled-components/native';
 
 export const Title = styled.Text`
-  font-size: 20;
+  font-size: 30px;
   font-weight: bold;
   align-self: center;
+  margin-top: 10px;
+  padding: 5px;
+  color: #023e8a;
 `;

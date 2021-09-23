@@ -1,8 +1,11 @@
+import {View, StyleSheet, SafeAreaView, FlatList} from 'react-native';
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, SafeAreaView, FlatList} from 'react-native';
-import TitleComponent from '../title/index';
-import {Button} from '../button/index';
 import {useDispatch, useSelector} from 'react-redux';
+
+import TitleComponent from '../title';
+import CharacterItem from '../characterItem';
+import {Button} from '../button';
+
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
 
@@ -37,16 +40,7 @@ const Home: React.FC = () => {
       <FlatList
         data={charactersList}
         renderItem={({item}) => (
-          <Text
-            style={{
-              fontSize: 20,
-              textAlign: 'center',
-              fontWeight: '700',
-              padding: 10,
-            }}
-            key={item.birth_year}>
-            {item.name}
-          </Text>
+          <CharacterItem key={item.birth_year} text={item.name} />
         )}
       />
 
