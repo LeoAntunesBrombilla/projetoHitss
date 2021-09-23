@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, FlatList} from 'react-native';
-import PaperTitle from '../title/index';
+import TitleComponent from '../title/index';
 import {Button} from '../button/index';
 import {useDispatch, useSelector} from 'react-redux';
 import {characterListActions} from '../../redux/characters';
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <PaperTitle text={'Lista de Personagens'} />
+      <TitleComponent text={'Lista de Personagens'} />
       <FlatList
         data={charactersList}
         renderItem={({item}) => (

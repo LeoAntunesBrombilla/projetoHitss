@@ -36,7 +36,6 @@ describe('Fluxo da store', () => {
 
   test('deve configurar a saga corretamente', () => {
     const {persistor, store} = configureStore();
-    console.log(createSagaMiddleware.mock.results);
     const sagaMiddleware = createSagaMiddleware.mock.results[0].value;
 
     expect(persistReducer).toHaveBeenCalledWith(persistConfig, rootReducer);

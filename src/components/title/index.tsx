@@ -1,14 +1,13 @@
 import React from 'react';
-import {Title as PaperTitle} from 'react-native-paper';
+import {Title} from './styles';
 
 interface Props {
   text: string;
-  alignCenter?: boolean;
 }
 
-const Title = (props: Props) => {
+const TitleComponent = (props: Props) => {
   const {text} = props;
-  return <PaperTitle>{text}</PaperTitle>;
+  return <Title>{text}</Title>;
 };
 
-export default Title;
+export default TitleComponent;
