@@ -17,6 +17,10 @@ const Home: React.FC = () => {
   const next = useSelector(selectors.getNextPage);
   const previous = useSelector(selectors.getPreviousPage);
 
+  const test = () => {
+    console.warn('hello');
+  };
+
   useEffect(() => {
     dispatch(characterListActions.requestCharacters());
   }, [dispatch]);
@@ -40,7 +44,11 @@ const Home: React.FC = () => {
       <FlatList
         data={charactersList}
         renderItem={({item}) => (
-          <CharacterItem key={item.birth_year} text={item.name} />
+          <CharacterItem
+            onPress={test}
+            key={item.birth_year}
+            text={item.name}
+          />
         )}
       />
 
