@@ -6,5 +6,5 @@ export const Title = styled.Text`
   align-self: center;
   margin-top: 10px;
   padding: 5px;
-  color: white;
+  color: black;
 `;

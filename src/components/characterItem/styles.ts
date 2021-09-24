@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  background-color: #e5e5e5;
+  background-color: black;
   display: flex;
   flex-direction: row;
   padding: 2%;
@@ -11,13 +11,12 @@ export const Container = styled.View`
 `;
 
 export const Item = styled.Text`
-  font-size: 20;
-  font-weight: bold;
+  font-size: 20px;
+  color: white;
   align-self: flex-start;
   width: 90%;
 `;
 
 export const IsFavoriteButton = styled.TouchableOpacity`
   width: 10%;
-  border: black solid 2px;
 `;

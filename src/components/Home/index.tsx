@@ -1,5 +1,5 @@
 import {View, StyleSheet, SafeAreaView, FlatList} from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import TitleComponent from '../title';
@@ -15,8 +15,11 @@ const Home: React.FC = () => {
   const next = useSelector(selectors.getNextPage);
   const previous = useSelector(selectors.getPreviousPage);
 
-  const test = () => {
-    console.warn('hello');
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleIsFavorite = (): boolean => {
+    setIsFavorite(!isFavorite);
+    return isFavorite;
   };
 
   useEffect(() => {
@@ -43,9 +46,10 @@ const Home: React.FC = () => {
         data={charactersList}
         renderItem={({item}) => (
           <CharacterItem
-            onPress={test}
+            onPress={handleIsFavorite}
             key={item.birth_year}
             text={item.name}
+            isFavorite={isFavorite}
           />
         )}
       />
@@ -62,7 +66,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     justifyContent: 'space-between',
-    backgroundColor: '#293241',
+    backgroundColor: '#e5e5e5',
   },
   buttonsContainer: {
     display: 'flex',

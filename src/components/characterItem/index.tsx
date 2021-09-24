@@ -1,12 +1,13 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {Item, Container, IsFavoriteButton} from './styles';
-import {Text} from 'react-native';
 
 interface Props {
   text: string;
   key: string;
-  onPress: () => void;
+  isFavorite: boolean;
+  onPress: () => boolean;
 }
 
 const CharacterItem = (props: Props) => {
@@ -14,7 +15,11 @@ const CharacterItem = (props: Props) => {
     <Container>
       <Item key={props.key}>{props.text}</Item>
       <IsFavoriteButton onPress={props.onPress}>
-        <Text>Ola</Text>
+        {props.isFavorite ? (
+          <Icon name="star-four-points" size={25} color="yellow" />
+        ) : (
+          <Icon name="star-four-points-outline" size={25} color="white" />
+        )}
       </IsFavoriteButton>
     </Container>
   );
