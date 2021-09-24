@@ -9,8 +9,6 @@ import {Button} from '../button';
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
 
-//TODO remover todos os imports de react-native-paper em seguida remover do projeto
-
 const Home: React.FC = () => {
   const dispatch = useDispatch();
   const charactersList = useSelector(selectors.getCharacterList);
@@ -51,12 +49,9 @@ const Home: React.FC = () => {
           />
         )}
       />
-
       <View style={styles.buttonsContainer}>
-        <View style={styles.buttonsContainer}>
-          <Button onPress={prevPagina} title={'Página Anterior'} />
-          <Button onPress={proxPagina} title="Página Seguinte" />
-        </View>
+        <Button onPress={prevPagina} title={'Página Anterior'} />
+        <Button onPress={proxPagina} title="Página Seguinte" />
       </View>
     </SafeAreaView>
   );
@@ -67,12 +62,14 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     justifyContent: 'space-between',
+    backgroundColor: '#293241',
   },
   buttonsContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     padding: 2,
+    marginBottom: '10%',
   },
 });
 
