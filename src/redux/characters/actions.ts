@@ -27,8 +27,8 @@ const actions = {
     type: CharacterListTypes.SET_PAGE_INFO,
     payload,
   }),
-  addFavorite: () => ({
-    type: CharacterListTypes.ADD_FAVORITE,
+  setFavorite: () => ({
+    type: CharacterListTypes.SET_FAVORITE,
   }),
 };
 
