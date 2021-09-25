@@ -1,6 +1,6 @@
 export enum CharacterListTypes {
   REQUEST_CHARACTERS = '@@CHARACTERS/REQUEST_CHARACTERS',
-  // ADD_FAVORITE = '@@CHARACTERS/ADD_FAVORITE',
+  ADD_FAVORITE = '@@CHARACTERS/ADD_FAVORITE',
   SET_CHARACTER_LISTS = '@@CHARACTERS/SET_CHARACTER_LISTS',
   SET_ERROR = '@@CHARACTERS/SET_ERROR',
   SET_PAGE_INFO = '@@CHARACTERS/SET_PAGE_INFO',
@@ -25,7 +25,11 @@ export type Character = {
   url: string;
 };
 
-export type CharacterLists = Array<Character>;
+export interface CharacterWithFavorite extends Character {
+  isFavorite: boolean;
+}
+
+export type CharacterLists = Array<CharacterWithFavorite>;
 
 export interface CharacterListState {
   isLoading: boolean;

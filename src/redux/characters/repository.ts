@@ -1,11 +1,11 @@
 import api from '../../api';
-import {Character} from './types';
+import {CharacterWithFavorite} from './types';
 
 export interface CharacterResponse {
   count: number;
   next: string | null;
   previous: string | null;
-  results: Character[];
+  results: CharacterWithFavorite[];
 }
 
 const requestCharacters = async (page: string = '1') => {

@@ -27,11 +27,9 @@ const actions = {
     type: CharacterListTypes.SET_PAGE_INFO,
     payload,
   }),
-  /*
   addFavorite: () => ({
     type: CharacterListTypes.ADD_FAVORITE,
   }),
-  */
 };
 
 export default actions;
