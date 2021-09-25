@@ -1,19 +1,21 @@
 import React from 'react';
-import {ButtonProps, PaginationButton} from './styles';
 
-interface Props extends ButtonProps {
+import {PaginationButton} from './styles';
+
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+interface Props {
   onPress(): void;
-  title: string;
+  arrowDirection: string;
 }
 
 export const Button = (props: Props) => {
-  return (
-    <PaginationButton
-      color={'black'}
-      onPress={props.onPress}
-      title={props.title}
-      textAling={'center'}
-      borderRadius={props.borderRadius}
-    />
-  );
+  let icon;
+  if (props.arrowDirection === 'right') {
+    icon = <Icon name="arrow-left-thick" size={40} color="black" />;
+  } else {
+    icon = <Icon name="arrow-right-bold" size={40} color="black" />;
+  }
+
+  return <PaginationButton onPress={props.onPress}>{icon}</PaginationButton>;
 };

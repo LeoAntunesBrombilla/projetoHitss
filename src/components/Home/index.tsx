@@ -54,8 +54,8 @@ const Home: React.FC = () => {
         )}
       />
       <View style={styles.buttonsContainer}>
-        <Button onPress={prevPagina} title={'Página Anterior'} />
-        <Button onPress={proxPagina} title="Página Seguinte" />
+        <Button onPress={prevPagina} arrowDirection={'right'} />
+        <Button onPress={proxPagina} arrowDirection={'left'} />
       </View>
     </SafeAreaView>
   );

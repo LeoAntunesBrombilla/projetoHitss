@@ -19,7 +19,7 @@ export function* requestCharacters(
       yield put(
         characterListActions.setPageInfo({
           previous: previousPageNumber,
-          next: nextPageNumber, //setar aqui!
+          next: nextPageNumber,
           count,
         }),
       );
