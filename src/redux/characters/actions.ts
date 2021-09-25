@@ -27,8 +27,13 @@ const actions = {
     type: CharacterListTypes.SET_PAGE_INFO,
     payload,
   }),
-  setFavorite: () => ({
+  setFavorite: (payload: {
+    isFavorite: boolean;
+  }): CharacterListAction<{
+    isFavorite: boolean;
+  }> => ({
     type: CharacterListTypes.SET_FAVORITE,
+    payload,
   }),
 };
 

@@ -16,6 +16,7 @@ export function* requestCharacters(
       const previousPageNumber = previous?.replace(/\D/g, '') || '';
       const nextPageNumber = next.replace(/\D/g, '') || '';
       yield put(characterListActions.setCharacterLists(results));
+      yield put(characterListActions.setFavorite({isFavorite: false}));
       yield put(
         characterListActions.setPageInfo({
           previous: previousPageNumber,
