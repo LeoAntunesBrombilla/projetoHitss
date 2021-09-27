@@ -13,6 +13,7 @@
   "hair_color": "blond",
   "height": "172",
   "homeworld": "https://swapi.dev/api/planets/1/",
+  "isFavorite": false,
   "mass": "77",
   "name": "Luke Skywalker",
   "skin_color": "fair",
