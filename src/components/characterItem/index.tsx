@@ -7,7 +7,7 @@ interface Props {
   text: string;
   key: string;
   isFavorite: boolean;
-  onPress: () => boolean;
+  onPress: () => void;
 }
 
 const CharacterItem = (props: Props) => {

@@ -10,7 +10,6 @@ import {
 const initialState: CharacterListState = {
   characterLists: [],
   isLoading: false,
-  isFavorite: false,
   error: undefined,
   previous: null,
   next: null,
@@ -33,17 +32,6 @@ const setCharacterLists: CharacterListReducer = (state, action) => {
     characterLists: payload.characterLists,
     isLoading: false,
     error: undefined,
-  };
-};
-
-const setFavorite: CharacterListReducer = (state, action) => {
-  const {payload: isFavorite} = action as ReturnType<
-    typeof characterListActions.setFavorite
-  >;
-
-  return {
-    ...state,
-    isFavorite: !isFavorite,
   };
 };
 
@@ -77,7 +65,6 @@ const CharacterListMap = new Map([
   [CharacterListTypes.REQUEST_CHARACTERS, requestCharacters],
   [CharacterListTypes.SET_CHARACTER_LISTS, setCharacterLists],
   [CharacterListTypes.SET_PAGE_INFO, setPageInfo],
-  [CharacterListTypes.SET_FAVORITE, setFavorite],
 ]);
 
 const reducer = (

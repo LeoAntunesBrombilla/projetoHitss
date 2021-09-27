@@ -14,12 +14,8 @@ const Home: React.FC = () => {
   const charactersList = useSelector(selectors.getCharacterList);
   const next = useSelector(selectors.getNextPage);
   const previous = useSelector(selectors.getPreviousPage);
-  const favorite = useSelector(selectors.getFavorite);
 
-  const handleIsFavorite = (): void => {
-    console.warn(favorite);
-    dispatch(characterListActions.setFavorite(favorite));
-  };
+  console.log(charactersList);
 
   useEffect(() => {
     dispatch(characterListActions.requestCharacters());
@@ -45,7 +41,7 @@ const Home: React.FC = () => {
         data={charactersList}
         renderItem={({item}) => (
           <CharacterItem
-            onPress={handleIsFavorite}
+            onPress={() => {}}
             key={item.birth_year}
             text={item.name}
             isFavorite={item.isFavorite}

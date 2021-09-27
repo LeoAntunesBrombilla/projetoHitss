@@ -33,7 +33,6 @@ export type CharacterLists = Array<CharacterWithFavorite>;
 
 export interface CharacterListState {
   isLoading: boolean;
-  isFavorite: boolean;
   next: string | null;
   previous: string | null;
   characterLists: CharacterLists;

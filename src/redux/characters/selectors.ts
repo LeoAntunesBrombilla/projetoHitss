@@ -8,9 +8,6 @@ export const getNextPage = (state: RootState) => state.characterReducer.next;
 export const getPreviousPage = (state: RootState) =>
   state.characterReducer.previous;
 
-export const getFavorite = (state: RootState) =>
-  state.characterReducer.isFavorite;
-
 export const getCharactersCount = (state: RootState) =>
   state.characterReducer.count;
 
