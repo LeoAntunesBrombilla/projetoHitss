@@ -13,7 +13,7 @@ export function* requestCharacters(
       yield call(repository.requestCharacters, action.payload);
 
     for (let counter = 0; counter < results.length; counter++) {
-      results[0].isFavorite = false;
+      results[counter].isFavorite = false;
     }
 
     if (results && next) {

@@ -15,6 +15,8 @@ const Home: React.FC = () => {
   const next = useSelector(selectors.getNextPage);
   const previous = useSelector(selectors.getPreviousPage);
 
+  console.log(charactersList);
+
   useEffect(() => {
     dispatch(characterListActions.requestCharacters());
   }, [dispatch]);
