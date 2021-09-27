@@ -35,6 +35,19 @@ const setCharacterLists: CharacterListReducer = (state, action) => {
   };
 };
 
+const setFavorite: CharacterListReducer = (state, action) => {
+  const {payload} = action as unknown as ReturnType<
+    typeof characterListActions.setFavorite
+  >;
+
+  return {
+    ...state,
+    isLoading: false,
+    error: undefined,
+    isFavorite: payload.isFavorite,
+  };
+};
+
 const setPageInfo: CharacterListReducer = (state, action) => {
   const {
     payload: {count, previous, next},
@@ -65,6 +78,7 @@ const CharacterListMap = new Map([
   [CharacterListTypes.REQUEST_CHARACTERS, requestCharacters],
   [CharacterListTypes.SET_CHARACTER_LISTS, setCharacterLists],
   [CharacterListTypes.SET_PAGE_INFO, setPageInfo],
+  [CharacterListTypes.SET_FAVORITE, setFavorite],
 ]);
 
 const reducer = (
