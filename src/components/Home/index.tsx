@@ -15,8 +15,6 @@ const Home: React.FC = () => {
   const next = useSelector(selectors.getNextPage);
   const previous = useSelector(selectors.getPreviousPage);
 
-  console.log(charactersList);
-
   useEffect(() => {
     dispatch(characterListActions.requestCharacters());
   }, [dispatch]);
@@ -34,8 +32,10 @@ const Home: React.FC = () => {
     }
   };
 
-  const handleIsFavorite = () => {
-    dispatch(characterListActions.setFavorite({isFavorite: false}));
+  const handleIsFavorite = (isFavorite: boolean, name: string) => {
+    dispatch(
+      characterListActions.setFavorite({isFavorite: !isFavorite, name: name}),
+    );
   };
 
   return (
@@ -45,7 +45,7 @@ const Home: React.FC = () => {
         data={charactersList}
         renderItem={({item}) => (
           <CharacterItem
-            onPress={handleIsFavorite}
+            onPress={() => handleIsFavorite(item.isFavorite, item.name)}
             key={item.birth_year}
             text={item.name}
             isFavorite={item.isFavorite}

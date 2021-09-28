@@ -40,6 +40,8 @@ const setFavorite: CharacterListReducer = (state, action) => {
     typeof characterListActions.setFavorite
   >;
 
+  console.warn(payload.name, !payload.isFavorite);
+
   return {
     ...state,
     isLoading: false,
