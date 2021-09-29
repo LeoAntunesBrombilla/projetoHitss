@@ -21,9 +21,7 @@ export function* requestCharacters(
       const nextPageNumber = next.replace(/\D/g, '') || '';
 
       yield put(characterListActions.setCharacterLists(results));
-      yield put(
-        characterListActions.setFavorite({isFavorite: isFavorite, name: name}),
-      );
+
       yield put(
         characterListActions.setPageInfo({
           previous: previousPageNumber,

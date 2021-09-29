@@ -1,4 +1,9 @@
-import {CharacterListTypes, CharacterListAction, CharacterLists} from './types';
+import {
+  CharacterListTypes,
+  CharacterListAction,
+  CharacterLists,
+  CharacterWithFavorite,
+} from './types';
 
 const actions = {
   setError: (error?: string): CharacterListAction<{error?: string}> => ({
@@ -28,11 +33,9 @@ const actions = {
     payload,
   }),
   setFavorite: (payload: {
-    isFavorite: boolean;
-    name: string;
+    CharacterWithFavorite: CharacterWithFavorite;
   }): CharacterListAction<{
-    isFavorite: boolean;
-    name: string;
+    CharacterWithFavorite: CharacterWithFavorite;
   }> => ({
     type: CharacterListTypes.SET_FAVORITE,
     payload,

@@ -32,22 +32,28 @@ const Home: React.FC = () => {
     }
   };
 
-  const handleIsFavorite = (isFavorite: boolean, name: string) => {
+  const handleIsFavorite = (character: any) => {
+    // verificar se é fav = true
+    // verficar se for false = slice
     dispatch(
-      characterListActions.setFavorite({isFavorite: !isFavorite, name: name}),
+      characterListActions.setFavorite({CharacterWithFavorite: character}),
     );
   };
+
+  // puxar no componente a variavel
 
   return (
     <SafeAreaView style={styles.container}>
       <TitleComponent text={'Lista de Personagens'} />
       <FlatList
         data={charactersList}
+        // find no array
         renderItem={({item}) => (
           <CharacterItem
-            onPress={() => handleIsFavorite(item.isFavorite, item.name)}
+            onPress={() => handleIsFavorite(item)}
             key={item.birth_year}
             text={item.name}
+            // favorites.find()
             isFavorite={item.isFavorite}
           />
         )}

@@ -5,6 +5,7 @@ import {
   CharacterListReducer,
   CharacterListState,
   CharacterListTypes,
+  CharacterWithFavorite,
 } from './types';
 
 const initialState: CharacterListState = {
@@ -15,6 +16,8 @@ const initialState: CharacterListState = {
   next: null,
   count: Number.NaN,
 };
+
+//TODO criar variavel favorites -> array de strings
 
 const requestCharacters: CharacterListReducer = state => ({
   ...state,
@@ -35,18 +38,25 @@ const setCharacterLists: CharacterListReducer = (state, action) => {
   };
 };
 
+const favoriteArrays: CharacterWithFavorite[] = [];
+
 const setFavorite: CharacterListReducer = (state, action) => {
   const {payload} = action as unknown as ReturnType<
     typeof characterListActions.setFavorite
   >;
 
-  console.warn(payload.name, !payload.isFavorite);
+  favoriteArrays.push(payload.CharacterWithFavorite);
+
+  favoriteArrays.filter(characters => {
+    return characters.name !== payload.CharacterWithFavorite.name;
+  });
+
+  console.log(favoriteArrays);
 
   return {
     ...state,
     isLoading: false,
     error: undefined,
-    isFavorite: payload.isFavorite,
   };
 };
 
