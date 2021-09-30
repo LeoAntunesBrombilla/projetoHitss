@@ -45,13 +45,15 @@ const setFavorite: CharacterListReducer = (state, action) => {
     typeof characterListActions.setFavorite
   >;
 
-  favoriteArrays.push(payload.CharacterWithFavorite);
+  let index = favoriteArrays.findIndex(
+    character => character.name === payload.CharacterWithFavorite.name,
+  );
 
-  favoriteArrays.filter(characters => {
-    return characters.name !== payload.CharacterWithFavorite.name;
-  });
-
-  console.log(favoriteArrays);
+  if (index === -1) {
+    favoriteArrays.push(payload.CharacterWithFavorite);
+  } else {
+    favoriteArrays.splice(index, 1);
+  }
 
   return {
     ...state,

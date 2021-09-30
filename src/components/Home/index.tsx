@@ -36,7 +36,9 @@ const Home: React.FC = () => {
     // verificar se é fav = true
     // verficar se for false = slice
     dispatch(
-      characterListActions.setFavorite({CharacterWithFavorite: character}),
+      characterListActions.setFavorite({
+        CharacterWithFavorite: character,
+      }),
     );
   };
 
@@ -53,7 +55,6 @@ const Home: React.FC = () => {
             onPress={() => handleIsFavorite(item)}
             key={item.birth_year}
             text={item.name}
-            // favorites.find()
             isFavorite={item.isFavorite}
           />
         )}
