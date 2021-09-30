@@ -6,6 +6,8 @@ export enum CharacterListTypes {
   SET_PAGE_INFO = '@@CHARACTERS/SET_PAGE_INFO',
 }
 
+//TODO remove isFavorite attribute
+
 export type Character = {
   name: string;
   height: string;
@@ -25,17 +27,14 @@ export type Character = {
   url: string;
 };
 
-export interface CharacterWithFavorite extends Character {
-  isFavorite: boolean;
-}
-
-export type CharacterLists = Array<CharacterWithFavorite>;
+export type CharacterLists = Array<Character>;
 
 export interface CharacterListState {
   isLoading: boolean;
   next: string | null;
   previous: string | null;
   characterLists: CharacterLists;
+  favoriteCharacters: CharacterLists;
   error?: string;
   count: number;
 }

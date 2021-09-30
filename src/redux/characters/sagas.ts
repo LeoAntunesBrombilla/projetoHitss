@@ -12,10 +12,6 @@ export function* requestCharacters(
     const {count, next, previous, results}: repository.CharacterResponse =
       yield call(repository.requestCharacters, action.payload);
 
-    for (let counter = 0; counter < results.length; counter++) {
-      results[counter].isFavorite = false;
-    }
-
     if (results && next) {
       const previousPageNumber = previous?.replace(/\D/g, '') || '';
       const nextPageNumber = next.replace(/\D/g, '') || '';

@@ -12,6 +12,9 @@ import * as selectors from '../../redux/characters/selectors';
 const Home: React.FC = () => {
   const dispatch = useDispatch();
   const charactersList = useSelector(selectors.getCharacterList);
+  const favoriteCharactersList = useSelector(
+    selectors.getFavoriteCharactersList,
+  );
   const next = useSelector(selectors.getNextPage);
   const previous = useSelector(selectors.getPreviousPage);
 
@@ -33,20 +36,28 @@ const Home: React.FC = () => {
   };
 
   const handleIsFavorite = (character: any) => {
-    // verificar se é fav = true
-    // verficar se for false = slice
     dispatch(
       characterListActions.setFavorite({
-        CharacterWithFavorite: character,
+        Character: character,
       }),
     );
   };
 
-  // puxar no componente a variavel
-
   return (
     <SafeAreaView style={styles.container}>
       <TitleComponent text={'Lista de Personagens'} />
+      <FlatList
+        data={favoriteCharactersList}
+        // find no array
+        renderItem={({item}) => (
+          <CharacterItem
+            onPress={() => handleIsFavorite(item)}
+            key={item.birth_year}
+            text={item.name}
+          />
+        )}
+      />
+
       <FlatList
         data={charactersList}
         // find no array
@@ -55,7 +66,6 @@ const Home: React.FC = () => {
             onPress={() => handleIsFavorite(item)}
             key={item.birth_year}
             text={item.name}
-            isFavorite={item.isFavorite}
           />
         )}
       />

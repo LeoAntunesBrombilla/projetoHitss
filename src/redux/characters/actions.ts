@@ -2,7 +2,7 @@ import {
   CharacterListTypes,
   CharacterListAction,
   CharacterLists,
-  CharacterWithFavorite,
+  Character,
 } from './types';
 
 const actions = {
@@ -33,9 +33,9 @@ const actions = {
     payload,
   }),
   setFavorite: (payload: {
-    CharacterWithFavorite: CharacterWithFavorite;
+    Character: Character;
   }): CharacterListAction<{
-    CharacterWithFavorite: CharacterWithFavorite;
+    Character: Character;
   }> => ({
     type: CharacterListTypes.SET_FAVORITE,
     payload,

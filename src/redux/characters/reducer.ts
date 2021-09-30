@@ -1,15 +1,16 @@
 import {characterListActions} from '.';
 
 import {
+  Character,
   CharacterListAction,
   CharacterListReducer,
   CharacterListState,
   CharacterListTypes,
-  CharacterWithFavorite,
 } from './types';
 
 const initialState: CharacterListState = {
   characterLists: [],
+  favoriteCharacters: [],
   isLoading: false,
   error: undefined,
   previous: null,
@@ -38,7 +39,7 @@ const setCharacterLists: CharacterListReducer = (state, action) => {
   };
 };
 
-const favoriteArrays: CharacterWithFavorite[] = [];
+const favoriteArrays: Character[] = [];
 
 const setFavorite: CharacterListReducer = (state, action) => {
   const {payload} = action as unknown as ReturnType<
@@ -46,17 +47,18 @@ const setFavorite: CharacterListReducer = (state, action) => {
   >;
 
   let index = favoriteArrays.findIndex(
-    character => character.name === payload.CharacterWithFavorite.name,
+    character => character.name === payload.Character.name,
   );
 
   if (index === -1) {
-    favoriteArrays.push(payload.CharacterWithFavorite);
+    favoriteArrays.push(payload.Character);
   } else {
     favoriteArrays.splice(index, 1);
   }
 
   return {
     ...state,
+    favoriteCharacters: favoriteArrays,
     isLoading: false,
     error: undefined,
   };
