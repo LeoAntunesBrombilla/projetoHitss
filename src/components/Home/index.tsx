@@ -9,14 +9,15 @@ import {Button} from '../button';
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
 
-const Home: React.FC = () => {
+import {useNavigation} from '@react-navigation/native';
+
+const Home: React.FC = ({screenName}) => {
   const dispatch = useDispatch();
   const charactersList = useSelector(selectors.getCharacterList);
-  const favoriteCharactersList = useSelector(
-    selectors.getFavoriteCharactersList,
-  );
   const next = useSelector(selectors.getNextPage);
   const previous = useSelector(selectors.getPreviousPage);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     dispatch(characterListActions.requestCharacters());
@@ -46,9 +47,9 @@ const Home: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <TitleComponent text={'Lista de Personagens'} />
+
       <FlatList
-        data={favoriteCharactersList}
-        // find no array
+        data={charactersList}
         renderItem={({item}) => (
           <CharacterItem
             onPress={() => handleIsFavorite(item)}
@@ -58,20 +59,10 @@ const Home: React.FC = () => {
         )}
       />
 
-      <FlatList
-        data={charactersList}
-        // find no array
-        renderItem={({item}) => (
-          <CharacterItem
-            onPress={() => handleIsFavorite(item)}
-            key={item.birth_year}
-            text={item.name}
-          />
-        )}
-      />
       <View style={styles.buttonsContainer}>
-        <Button onPress={prevPagina} arrowDirection={'right'} />
-        <Button onPress={proxPagina} arrowDirection={'left'} />
+        <Button onPress={prevPagina} icon={'right'} />
+        <Button onPress={proxPagina} icon={'left'} />
+        <Button onPress={() => navigation.navigate('Favorites')} />
       </View>
     </SafeAreaView>
   );

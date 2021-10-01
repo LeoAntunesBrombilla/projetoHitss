@@ -14,11 +14,7 @@ const CharacterItem = (props: Props) => {
     <Container>
       <Item key={props.key}>{props.text}</Item>
       <IsFavoriteButton onPress={props.onPress}>
-        {props ? (
-          <Icon name="star-four-points" size={25} color="yellow" />
-        ) : (
-          <Icon name="star-four-points-outline" size={25} color="white" />
-        )}
+        <Icon name="star-four-points" size={25} color="white" />
       </IsFavoriteButton>
     </Container>
   );
