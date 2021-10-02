@@ -2,9 +2,9 @@ import {StyleSheet, SafeAreaView, FlatList, View} from 'react-native';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import TitleComponent from '../title';
-import CharacterItem from '../characterItem';
-import {Button} from '../button';
+import TitleComponent from '../../components/title';
+import CharacterItem from '../../components/characterItem';
+import {Button} from '../../components/button';
 
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
@@ -25,7 +25,7 @@ const Favoritos: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TitleComponent text={'Lista de Personagens'} />
+      <TitleComponent text={'Lista de personagens favoritos'} />
       <FlatList
         data={favoriteCharactersList}
         renderItem={({item}) => (
@@ -33,11 +33,14 @@ const Favoritos: React.FC = () => {
             onPress={() => {}}
             key={item.birth_year}
             text={item.name}
+            onClick={() => {}}
           />
         )}
+        keyExtractor={item => item.name}
+        nestedScrollEnabled
       />
       <View style={styles.buttonsContainer}>
-        <Button onPress={() => navigation.navigate('Home')} />
+        <Button onPress={() => navigation.navigate('Home' as never)} />
       </View>
     </SafeAreaView>
   );

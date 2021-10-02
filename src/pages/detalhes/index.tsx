@@ -1,9 +1,10 @@
-import {StyleSheet, SafeAreaView, View} from 'react-native';
+import {StyleSheet, SafeAreaView, View, Text} from 'react-native';
 import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
+import {DetailsListContainer, DetailsTitle} from './styles';
 
-import TitleComponent from '../title';
-import {Button} from '../button';
+import TitleComponent from '../../components/title';
+import {Button} from '../../components/button';
 
 import {characterListActions} from '../../redux/characters';
 
@@ -23,8 +24,13 @@ const Detalhes = ({route}: Props) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TitleComponent text={`${charater.name}`} />
+      <DetailsListContainer>
+        <DetailsTitle>{charater.name}</DetailsTitle>
+        <TitleComponent text={charater.name} />
 
+        <Text> {charater.gender} </Text>
+        <Text> {charater.films} </Text>
+      </DetailsListContainer>
       <View style={styles.buttonsContainer}>
         <Button onPress={() => navigateTo.navigate('Home' as never)} />
       </View>
