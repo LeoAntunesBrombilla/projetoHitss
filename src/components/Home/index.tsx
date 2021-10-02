@@ -1,4 +1,11 @@
-import {View, StyleSheet, SafeAreaView, FlatList} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  SafeAreaView,
+  FlatList,
+  ScrollView,
+} from 'react-native';
+
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -6,16 +13,19 @@ import TitleComponent from '../title';
 import CharacterItem from '../characterItem';
 import {Button} from '../button';
 
+import {Character} from '../../redux/characters/types';
+
 import {characterListActions} from '../../redux/characters';
 import * as selectors from '../../redux/characters/selectors';
 
 import {useNavigation} from '@react-navigation/native';
 
-const Home: React.FC = ({screenName}) => {
+const Home: React.FC = () => {
   const dispatch = useDispatch();
   const charactersList = useSelector(selectors.getCharacterList);
   const next = useSelector(selectors.getNextPage);
   const previous = useSelector(selectors.getPreviousPage);
+  const favoriteCharacters = useSelector(selectors.getFavoriteCharactersList);
 
   const navigation = useNavigation();
 
@@ -44,25 +54,36 @@ const Home: React.FC = ({screenName}) => {
     );
   };
 
+  const renderCharacters = ({item}: {item: Character}) => {
+    return (
+      <CharacterItem
+        onPress={() => handleIsFavorite(item)}
+        key={item.birth_year}
+        text={item.name}
+        onClick={() =>
+          navigation.navigate('Detalhes' as never, {params: item} as never)
+        }
+      />
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <TitleComponent text={'Lista de Personagens'} />
+      <ScrollView>
+        <TitleComponent text={'Lista de Personagens'} />
+        <TitleComponent text={`${favoriteCharacters.length}`} />
 
-      <FlatList
-        data={charactersList}
-        renderItem={({item}) => (
-          <CharacterItem
-            onPress={() => handleIsFavorite(item)}
-            key={item.birth_year}
-            text={item.name}
-          />
-        )}
-      />
-
+        <FlatList
+          data={charactersList}
+          renderItem={renderCharacters}
+          keyExtractor={item => item.name}
+          nestedScrollEnabled
+        />
+      </ScrollView>
       <View style={styles.buttonsContainer}>
         <Button onPress={prevPagina} icon={'right'} />
         <Button onPress={proxPagina} icon={'left'} />
-        <Button onPress={() => navigation.navigate('Favorites')} />
+        <Button onPress={() => navigation.navigate('Favorites' as never)} />
       </View>
     </SafeAreaView>
   );
@@ -79,8 +100,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    padding: 2,
-    marginBottom: '10%',
+    padding: 3,
+    backgroundColor: 'black',
   },
 });
 

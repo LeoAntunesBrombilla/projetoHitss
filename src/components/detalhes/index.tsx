@@ -1,23 +1,21 @@
-import {StyleSheet, SafeAreaView, FlatList, View} from 'react-native';
+import {StyleSheet, SafeAreaView, View} from 'react-native';
 import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 import TitleComponent from '../title';
-import CharacterItem from '../characterItem';
 import {Button} from '../button';
 
 import {characterListActions} from '../../redux/characters';
-import * as selectors from '../../redux/characters/selectors';
 
 import {useNavigation} from '@react-navigation/native';
+import {Props} from 'App';
 
-const Favoritos: React.FC = () => {
+const Detalhes = ({route}: Props) => {
+  const charater = route.params.params;
+
   const dispatch = useDispatch();
-  const favoriteCharactersList = useSelector(
-    selectors.getFavoriteCharactersList,
-  );
 
-  const navigation = useNavigation();
+  const navigateTo = useNavigation();
 
   useEffect(() => {
     dispatch(characterListActions.requestCharacters());
@@ -25,19 +23,10 @@ const Favoritos: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TitleComponent text={'Lista de Personagens'} />
-      <FlatList
-        data={favoriteCharactersList}
-        renderItem={({item}) => (
-          <CharacterItem
-            onPress={() => {}}
-            key={item.birth_year}
-            text={item.name}
-          />
-        )}
-      />
+      <TitleComponent text={`${charater.name}`} />
+
       <View style={styles.buttonsContainer}>
-        <Button onPress={() => navigation.navigate('Home')} />
+        <Button onPress={() => navigateTo.navigate('Home' as never)} />
       </View>
     </SafeAreaView>
   );
@@ -59,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Favoritos;
+export default Detalhes;
