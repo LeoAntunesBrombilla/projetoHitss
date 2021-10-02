@@ -6,16 +6,20 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface Props {
   onPress(): void;
-  arrowDirection: string;
+  icon?: string;
 }
 
 export const Button = (props: Props) => {
-  let icon;
-  if (props.arrowDirection === 'right') {
-    icon = <Icon name="arrow-left-thick" size={40} color="black" />;
+  let chosenIcon;
+  if (props.icon === 'right') {
+    chosenIcon = <Icon name="arrow-left-thick" size={40} color="white" />;
+  } else if (props.icon === 'left') {
+    chosenIcon = <Icon name="arrow-right-bold" size={40} color="white" />;
   } else {
-    icon = <Icon name="arrow-right-bold" size={40} color="black" />;
+    chosenIcon = <Icon name="star-four-points" size={40} color="white" />;
   }
 
-  return <PaginationButton onPress={props.onPress}>{icon}</PaginationButton>;
+  return (
+    <PaginationButton onPress={props.onPress}>{chosenIcon}</PaginationButton>
+  );
 };

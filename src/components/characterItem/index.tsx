@@ -1,26 +1,25 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import IconEntypo from 'react-native-vector-icons/Entypo';
 
-import {Item, Container, IsFavoriteButton} from './styles';
+import {Item, Container, IsFavoriteButton, DetailsButton} from './styles';
 
 interface Props {
   text: string;
-  key: string;
-  isFavorite: boolean;
-  onPress: () => boolean;
+  onPress: () => void;
+  onClick: () => void;
 }
 
 const CharacterItem = (props: Props) => {
   return (
     <Container>
-      <Item key={props.key}>{props.text}</Item>
+      <Item>{props.text}</Item>
       <IsFavoriteButton onPress={props.onPress}>
-        {props.isFavorite ? (
-          <Icon name="star-four-points" size={25} color="yellow" />
-        ) : (
-          <Icon name="star-four-points-outline" size={25} color="white" />
-        )}
+        <Icon name="star-four-points" size={25} color="white" />
       </IsFavoriteButton>
+      <DetailsButton onPress={props.onClick}>
+        <IconEntypo name="magnifying-glass" size={25} color="white" />
+      </DetailsButton>
     </Container>
   );
 };
