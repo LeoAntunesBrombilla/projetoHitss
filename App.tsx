@@ -3,7 +3,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {configureStore} from './src/redux';
 
-import Home from './src/pages/Home';
+import Home from './src/pages/home';
 import Favoritos from './src/pages/favoriteCharactersList';
 import Detalhes from './src/pages/detalhes';
 

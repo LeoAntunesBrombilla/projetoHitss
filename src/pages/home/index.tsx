@@ -1,11 +1,11 @@
-import {View, StyleSheet, SafeAreaView, FlatList} from 'react-native';
+import {StyleSheet, SafeAreaView, FlatList} from 'react-native';
 
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import TitleComponent from '../../components/title';
 import CharacterItem from '../../components/characterItem';
-import {Button} from '../../components/button';
+import {Footer} from '../../components/footer';
 
 import {Character} from '../../redux/characters/types';
 
@@ -19,7 +19,6 @@ const Home: React.FC = () => {
   const charactersList = useSelector(selectors.getCharacterList);
   const next = useSelector(selectors.getNextPage);
   const previous = useSelector(selectors.getPreviousPage);
-  const favoriteCharacters = useSelector(selectors.getFavoriteCharactersList);
 
   const navigation = useNavigation();
 
@@ -27,14 +26,14 @@ const Home: React.FC = () => {
     dispatch(characterListActions.requestCharacters());
   }, [dispatch]);
 
-  const proxPagina = () => {
+  const nextPage = () => {
     if (next) {
       dispatch(characterListActions.requestCharacters(next));
     }
     return null;
   };
 
-  const prevPagina = () => {
+  const previousPage = () => {
     if (previous) {
       dispatch(characterListActions.requestCharacters(previous));
     }
@@ -61,10 +60,13 @@ const Home: React.FC = () => {
     );
   };
 
+  const navigateToFavorite = (): void => {
+    navigation.navigate('Favoritos' as never);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <TitleComponent text={'Lista de Personagens'} />
-      <TitleComponent text={`${favoriteCharacters.length}`} />
+      <TitleComponent text={'Lista dos Personagens'} />
 
       <FlatList
         data={charactersList}
@@ -72,11 +74,12 @@ const Home: React.FC = () => {
         keyExtractor={item => item.name}
         nestedScrollEnabled
       />
-      <View style={styles.buttonsContainer}>
-        <Button onPress={prevPagina} icon={'right'} />
-        <Button onPress={proxPagina} icon={'left'} />
-        <Button onPress={() => navigation.navigate('Favoritos' as never)} />
-      </View>
+
+      <Footer
+        previousPage={previousPage}
+        nextPage={nextPage}
+        navigateToFavorite={navigateToFavorite}
+      />
     </SafeAreaView>
   );
 };
@@ -87,13 +90,6 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'space-between',
     backgroundColor: '#e5e5e5',
-  },
-  buttonsContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    padding: 3,
-    backgroundColor: 'black',
   },
 });
 
