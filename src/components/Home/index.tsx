@@ -1,10 +1,4 @@
-import {
-  View,
-  StyleSheet,
-  SafeAreaView,
-  FlatList,
-  ScrollView,
-} from 'react-native';
+import {View, StyleSheet, SafeAreaView, FlatList} from 'react-native';
 
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -81,7 +75,7 @@ const Home: React.FC = () => {
       <View style={styles.buttonsContainer}>
         <Button onPress={prevPagina} icon={'right'} />
         <Button onPress={proxPagina} icon={'left'} />
-        <Button onPress={() => navigation.navigate('Favorites' as never)} />
+        <Button onPress={() => navigation.navigate('Favoritos' as never)} />
       </View>
     </SafeAreaView>
   );
