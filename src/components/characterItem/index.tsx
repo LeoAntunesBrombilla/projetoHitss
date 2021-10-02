@@ -6,7 +6,6 @@ import {Item, Container, IsFavoriteButton, DetailsButton} from './styles';
 
 interface Props {
   text: string;
-  key: string;
   onPress: () => void;
   onClick: () => void;
 }
@@ -14,7 +13,7 @@ interface Props {
 const CharacterItem = (props: Props) => {
   return (
     <Container>
-      <Item key={props.key}>{props.text}</Item>
+      <Item>{props.text}</Item>
       <IsFavoriteButton onPress={props.onPress}>
         <Icon name="star-four-points" size={25} color="white" />
       </IsFavoriteButton>

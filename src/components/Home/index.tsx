@@ -69,17 +69,15 @@ const Home: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <TitleComponent text={'Lista de Personagens'} />
-        <TitleComponent text={`${favoriteCharacters.length}`} />
+      <TitleComponent text={'Lista de Personagens'} />
+      <TitleComponent text={`${favoriteCharacters.length}`} />
 
-        <FlatList
-          data={charactersList}
-          renderItem={renderCharacters}
-          keyExtractor={item => item.name}
-          nestedScrollEnabled
-        />
-      </ScrollView>
+      <FlatList
+        data={charactersList}
+        renderItem={renderCharacters}
+        keyExtractor={item => item.name}
+        nestedScrollEnabled
+      />
       <View style={styles.buttonsContainer}>
         <Button onPress={prevPagina} icon={'right'} />
         <Button onPress={proxPagina} icon={'left'} />
