@@ -3,9 +3,9 @@ import {View, StyleSheet, SafeAreaView, FlatList} from 'react-native';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import TitleComponent from '../title';
-import CharacterItem from '../characterItem';
-import {Button} from '../button';
+import TitleComponent from '../../components/title';
+import CharacterItem from '../../components/characterItem';
+import {Button} from '../../components/button';
 
 import {Character} from '../../redux/characters/types';
 
