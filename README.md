@@ -1,7 +1,7 @@
 # ProjetoHitss
 
 ### Objective: 
-This project was developed using React Native and Typescript as a challenge to learn how to deal with redux, and redux sagas as well as typescript.
+This project was developed using React Native and Typescript as a challenge to learn how to deal with redux, redux sagas as well as Typescript.
 
 ## Tecnologies and API Used:
 
