@@ -47,6 +47,10 @@ const Home: React.FC = () => {
     );
   };
 
+  const navigateToFavorite = (): void => {
+    navigation.navigate('Favoritos' as never);
+  };
+
   const renderCharacters = ({item}: {item: Character}) => {
     return (
       <CharacterItem
@@ -58,10 +62,6 @@ const Home: React.FC = () => {
         }
       />
     );
-  };
-
-  const navigateToFavorite = (): void => {
-    navigation.navigate('Favoritos' as never);
   };
 
   return (

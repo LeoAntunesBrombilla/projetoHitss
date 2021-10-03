@@ -34,6 +34,9 @@ const Favoritos: React.FC = () => {
         key={item.name}
         text={item.name}
         page={'favorites'}
+        onClick={() =>
+          navigation.navigate('Detalhes' as never, {params: item} as never)
+        }
       />
     );
   };
