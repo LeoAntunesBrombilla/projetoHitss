@@ -4,8 +4,8 @@ import {Provider} from 'react-redux';
 import {configureStore} from './src/redux';
 
 import Home from './src/pages/home';
-import Favoritos from './src/pages/favoriteCharactersList';
-import Detalhes from './src/pages/detalhes';
+import Favoritos from './src/pages/favoriteCharacters';
+import Detalhes from './src/pages/details';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';

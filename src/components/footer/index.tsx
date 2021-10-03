@@ -6,15 +6,24 @@ import {Button} from '../button';
 interface Props {
   previousPage: () => void;
   nextPage: () => void;
-  navigateToFavorite: () => void;
+  navigateTo: () => void;
+  page?: string;
 }
 
 export const Footer = (props: Props) => {
-  return (
-    <FooterContainer>
-      <Button onPress={props.previousPage} icon={'right'} />
-      <Button onPress={props.nextPage} icon={'left'} />
-      <Button onPress={props.navigateToFavorite} />
-    </FooterContainer>
-  );
+  if (props.page === 'favorites') {
+    return (
+      <FooterContainer>
+        <Button onPress={props.navigateTo} />
+      </FooterContainer>
+    );
+  } else {
+    return (
+      <FooterContainer>
+        <Button onPress={props.previousPage} icon={'left'} />
+        <Button onPress={props.nextPage} icon={'right'} />
+        <Button onPress={props.navigateTo} icon={'star-four-points'} />
+      </FooterContainer>
+    );
+  }
 };
