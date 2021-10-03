@@ -33,7 +33,7 @@ const Favoritos: React.FC = () => {
         onPress={() => {}}
         key={item.name}
         text={item.name}
-        onClick={() => {}}
+        page={'favorites'}
       />
     );
   };

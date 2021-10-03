@@ -10,11 +10,15 @@ export const Container = styled.View`
   border-radius: 10px;
 `;
 
-export const Item = styled.Text`
+interface WidthProp {
+  width: string;
+}
+
+export const Item = styled.Text<WidthProp>`
   font-size: 20px;
   color: white;
   align-self: flex-start;
-  width: 75%;
+  width: ${props => props.width};
   margin-right: 4%;
 `;
 
