@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import IconFont from 'react-native-vector-icons/FontAwesome5';
 
 import {
   DetailsInfoContainer,
@@ -34,24 +33,20 @@ export const DetailInfo = (props: Props) => {
       <DetailsTitle>{props.name}</DetailsTitle>
       <DetailsInfoContainer>
         <DetailsRowContainer>
-          <Icon name="human-male-height" size={40} color="black" />
-          <DetailsText>{`${props.height}cm`}</DetailsText>
+          <Icon name="human-male-height" size={35} color="black" />
+          <DetailsText>{`${props.height} cm`}</DetailsText>
         </DetailsRowContainer>
         <DetailsRowContainer>
-          <Icon name="weight-kilogram" size={40} color="black" />
-          <DetailsText>{`${props.mass}kg`}</DetailsText>
+          <Icon name="weight-kilogram" size={35} color="black" />
+          <DetailsText>{`${props.mass} kg`}</DetailsText>
         </DetailsRowContainer>
         <DetailsRowContainer>
-          <IconFont name="birthday-cake" size={40} color="black" />
-          <DetailsText>{`${props.birth_year}kg`}</DetailsText>
+          <Icon name="baby" size={35} color="black" />
+          <DetailsText>{`${props.birth_year}`}</DetailsText>
         </DetailsRowContainer>
         <DetailsRowContainer>
-          <Icon name="content-cut" size={40} color="black" />
+          <Icon name="content-cut" size={35} color="black" />
           <DetailsText>{`${props.hair_color}`}</DetailsText>
-        </DetailsRowContainer>
-        <DetailsRowContainer>
-          <Icon name="movie-open" size={40} color="black" />
-          <DetailsText>{`${props.movies}`}</DetailsText>
         </DetailsRowContainer>
       </DetailsInfoContainer>
     </>
