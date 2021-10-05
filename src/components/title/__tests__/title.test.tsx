@@ -9,7 +9,7 @@ describe('Title Component', () => {
     expect(getByText('')).not.toBeNull();
   });
 
-  const props = 'oi';
+  const props = 'Luke';
 
   it('display the correct text', () => {
     const {queryByText} = render(<Title>{props}</Title>);
