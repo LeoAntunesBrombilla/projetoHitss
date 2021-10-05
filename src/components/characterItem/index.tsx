@@ -11,20 +11,23 @@ interface Props {
   page?: string;
 }
 
+//TODO renderizar como favorites
+//TODO mudar nome de onPress e onCLick, text
+
 const CharacterItem = (props: Props) => {
   return (
     <Container>
       {props.page === 'favorites' ? (
         <>
           <Item width={'85%'}>{props.text}</Item>
-          <DetailsButton onPress={props.onClick}>
+          <DetailsButton onPress={props.onClick} testID="details-button">
             <IconEntypo name="magnifying-glass" size={25} color="white" />
           </DetailsButton>
         </>
       ) : (
         <>
           <Item width={'75%'}>{props.text}</Item>
-          <IsFavoriteButton onPress={props.onPress}>
+          <IsFavoriteButton testID="favorite-button" onPress={props.onPress}>
             <Icon name="star-four-points" size={25} color="white" />
           </IsFavoriteButton>
           <DetailsButton onPress={props.onClick}>

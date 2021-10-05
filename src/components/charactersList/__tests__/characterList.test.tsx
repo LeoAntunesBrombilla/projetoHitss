@@ -44,6 +44,8 @@ const mockDataCharacters = [
 
 const renderCharacters = jest.fn();
 
+//TODO renderizar character list
+
 describe('CharactersList component', () => {
   it('should render the data received', () => {
     const componentTree = render(

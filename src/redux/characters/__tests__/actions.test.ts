@@ -27,6 +27,15 @@ describe('Character Action', () => {
     },
   ];
 
+  const setFavorite = [
+    'setFavorite',
+    actions.setFavorite({Character: mockCharacter}),
+    {
+      type: CharacterListTypes.SET_FAVORITE,
+      payload: {Character: mockCharacter},
+    },
+  ];
+
   const setCharacterLists = [
     'setCharactersLists',
     actions.setCharacterLists([mockCharacter]),
@@ -41,6 +50,7 @@ describe('Character Action', () => {
     requestCharacters,
     setPageInfo,
     setCharacterLists,
+    setFavorite,
   ] as Array<[string, typeof actions, any]>)(
     'deve retornar as actions corretas %s',
     (describe, action, expected) => {
