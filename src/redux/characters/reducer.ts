@@ -18,8 +18,6 @@ const initialState: CharacterListState = {
   count: Number.NaN,
 };
 
-//TODO criar variavel favorites -> array de strings
-
 const requestCharacters: CharacterListReducer = state => ({
   ...state,
   isLoading: true,

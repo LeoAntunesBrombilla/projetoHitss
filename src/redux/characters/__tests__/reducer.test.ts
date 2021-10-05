@@ -12,6 +12,7 @@ describe('Characters Reducers', () => {
   const initialState = {
     isLoading: false,
     characterLists: [],
+    favoriteCharacters: [],
     error: undefined,
     next: null,
     previous: null,
@@ -34,13 +35,25 @@ describe('Characters Reducers', () => {
     {...initialState, isLoading: true, error: undefined},
   ];
 
+  const setPageInfo = [
+    'setPageInfo',
+    actions.setPageInfo({count: 80, previous: '1', next: '3'}),
+    {...initialState, count: 80, previous: '1', next: '3'},
+  ];
+
   const setCharacterLists = [
     'setCharacterLists',
     actions.setCharacterLists([mockData]),
     {...initialState, characterLists: [mockData]},
   ];
 
-  test.each([any, setError, requestCharacters, setCharacterLists] as Array<
+  test.each([
+    any,
+    setError,
+    requestCharacters,
+    setCharacterLists,
+    setPageInfo,
+  ] as Array<
     [string, CharacterListAction<CharacterListState>, CharacterListState]
   >)(
     'deve retornar corretamente o state para a action %s',
