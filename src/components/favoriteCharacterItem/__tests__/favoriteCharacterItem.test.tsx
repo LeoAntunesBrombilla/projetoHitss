@@ -8,12 +8,12 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 
 describe('Item component', () => {
-  it('dont display any text when there are no text', () => {
+  it('dont display text when there are no text', () => {
     const {getByText} = render(<Item></Item>);
     expect(getByText('')).not.toBeNull();
   });
 
-  it('display correct text', () => {
+  it('display the correct text', () => {
     const {queryByText} = render(<Item>Oi</Item>);
     expect(queryByText('Oi')).not.toBeNull();
   });

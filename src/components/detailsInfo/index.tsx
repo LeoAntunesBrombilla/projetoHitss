@@ -18,15 +18,6 @@ interface Props {
   movies?: string[];
 }
 
-//TODO create a separate component for this block of code
-
-/*
-<DetailsRowContainer>
-    <Icon name="human-male-height" size={40} color="black" />
-    <DetailsText>{`${props.height}cm`}</DetailsText>
-</DetailsRowContainer>
-*/
-
 export const DetailInfo = (props: Props) => {
   return (
     <>
