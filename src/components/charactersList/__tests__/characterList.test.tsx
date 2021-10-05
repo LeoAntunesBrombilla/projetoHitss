@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
 
-import {FlatList} from 'react-native';
+import {CharactersList} from '../';
 
 const mockDataCharacters = [
   {
@@ -44,21 +44,16 @@ const mockDataCharacters = [
 
 const renderCharacters = jest.fn();
 
-//TODO renderizar character list
-
 describe('CharactersList component', () => {
   it('should render the data received', () => {
-    const componentTree = render(
-      <FlatList
+    const {queryByTestId} = render(
+      <CharactersList
         data={mockDataCharacters}
         renderItem={renderCharacters}
         keyExtractor={item => item.name}
-        nestedScrollEnabled
-        testID="flatlist"
       />,
     );
 
-    expect(componentTree).toBeTruthy();
-    expect(componentTree.getAllByTestId('flatlist').length).toBe(1);
+    expect(queryByTestId('characters-list')).toBeTruthy();
   });
 });

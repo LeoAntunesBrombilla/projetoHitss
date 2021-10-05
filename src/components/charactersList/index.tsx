@@ -16,6 +16,7 @@ export const CharactersList = (props: Props) => {
       renderItem={props.renderItem}
       keyExtractor={props.keyExtractor}
       nestedScrollEnabled
+      testID="characters-list"
     />
   );
 };
