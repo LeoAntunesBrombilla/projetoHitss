@@ -11,6 +11,7 @@ describe('Character Selector', () => {
     .withCharacter({
       isLoading: false,
       characterLists: [mockCharacter],
+      favoriteCharacters: [mockCharacter],
       next: '3',
       previous: '1',
       count: 82,
@@ -20,6 +21,12 @@ describe('Character Selector', () => {
   const getCharacterList = [
     'getCharacterList',
     selectors.getCharacterList(mockState),
+    [mockCharacter],
+  ];
+
+  const getFavoriteCharactersList = [
+    'getFavoriteCharactersList',
+    selectors.getFavoriteCharactersList(mockState),
     [mockCharacter],
   ];
 
@@ -44,6 +51,7 @@ describe('Character Selector', () => {
     getNextPage,
     getPreviousPage,
     isLoading,
+    getFavoriteCharactersList,
     getCharactersCount,
   ] as Array<[string, typeof selectors, any]>)(
     'deve retornar corretamente os dados do selector %s',

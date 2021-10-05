@@ -1,6 +1,6 @@
 import {PersistState} from 'redux-persist';
 
-import {CharacterListState} from '@redux/characters/types';
+import {CharacterListState} from '../characters/types';
 
 import {initialAppState} from './initialAppState.mock';
 
@@ -18,7 +18,6 @@ export class AppStateMockBuilder {
     return this;
   }
 
-  //TODO Perguntar de onde bem esse build!
   build = () => {
     return {
       _persist: this._persist,

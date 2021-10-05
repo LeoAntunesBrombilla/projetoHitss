@@ -7,6 +7,7 @@ export const initialAppState: RootState = {
   },
   characterReducer: {
     characterLists: [],
+    favoriteCharacters: [],
     isLoading: false,
     error: undefined,
     previous: null,
