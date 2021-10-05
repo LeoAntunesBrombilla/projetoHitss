@@ -11,8 +11,7 @@ interface Props {
   page?: string;
 }
 
-//TODO renderizar como favorites
-//TODO mudar nome de onPress e onCLick, text
+//TODO mudar nome de onPress e onClick, text
 
 const CharacterItem = (props: Props) => {
   return (

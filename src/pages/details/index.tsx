@@ -38,7 +38,7 @@ const Detalhes = ({route}: Props) => {
         navigateTo={navigateToHome}
         previousPage={() => undefined}
         nextPage={() => undefined}
-        page={'favorites'}
+        page={'home'}
       />
     </Container>
   );

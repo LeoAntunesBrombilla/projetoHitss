@@ -57,7 +57,7 @@ const Favoritos: React.FC = () => {
         navigateTo={navigateToHome}
         previousPage={() => undefined}
         nextPage={() => undefined}
-        page={'favorites'}
+        page={'home'}
       />
     </Container>
   );

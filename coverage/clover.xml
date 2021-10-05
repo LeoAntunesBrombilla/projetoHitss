@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1633475605167" clover="3.2.0">
-  <project timestamp="1633475605167" name="All files">
-    <metrics statements="89" coveredstatements="81" conditionals="23" coveredconditionals="16" methods="26" coveredmethods="24" elements="138" coveredelements="121" complexity="0" loc="89" ncloc="89" packages="9" files="19" classes="19"/>
+<coverage generated="1633478146911" clover="3.2.0">
+  <project timestamp="1633478146911" name="All files">
+    <metrics statements="93" coveredstatements="85" conditionals="25" coveredconditionals="18" methods="27" coveredmethods="25" elements="145" coveredelements="128" complexity="0" loc="93" ncloc="93" packages="9" files="20" classes="20"/>
     <package name="api">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="/home/leonardo/Desktop/Projetos/projetoHitss/src/api/index.ts">
@@ -13,27 +13,27 @@
       <metrics statements="10" coveredstatements="10" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
       <file name="index.tsx" path="/home/leonardo/Desktop/Projetos/projetoHitss/src/components/button/index.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="14" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="23" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="32" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="47" count="4" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="23" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="32" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="47" count="8" type="stmt"/>
       </file>
       <file name="styles.ts" path="/home/leonardo/Desktop/Projetos/projetoHitss/src/components/button/styles.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.characterItem">
       <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="index.tsx" path="/home/leonardo/Desktop/Projetos/projetoHitss/src/components/characterItem/index.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
       </file>
       <file name="styles.ts" path="/home/leonardo/Desktop/Projetos/projetoHitss/src/components/characterItem/styles.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -62,7 +62,14 @@
       </file>
     </package>
     <package name="components.footer">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/leonardo/Desktop/Projetos/projetoHitss/src/components/footer/index.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
       <file name="styles.ts" path="/home/leonardo/Desktop/Projetos/projetoHitss/src/components/footer/styles.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
