@@ -41,4 +41,8 @@ This project was developed using React Native and Typescript as a challenge to l
 <img src="https://user-images.githubusercontent.com/76003107/136227991-4f2b7539-9ead-4494-a648-95bb6c0268dc.gif"  width="300px" />
 </p>
 
+### Helping
+
+A special thanks to [Salomão](https://github.com/salomaoluiz) for helping me with testing and redux saga :raised_hands:	!
+
 This project isnt finished yet so stay tunned!
