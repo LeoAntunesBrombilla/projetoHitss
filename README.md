@@ -54,7 +54,7 @@ A special thanks to [Salomão](https://github.com/salomaoluiz) for helping me wi
 
 ### Some final thoughts for now:
 
-This project isn't finished yet, but for now i will be learning more aboutthe stack mentioned earlier, testing and infra related stuff so i can go back to this project and improve on what i already have. Any constructive criticism is welcome. 
+This project isn't finished yet, but for now i will be learning more about the stack mentioned earlier, testing and infra related stuff so i can go back to this project and improve on what i already have. Any constructive criticism is welcome. 
 
 Tks for your time!
 
