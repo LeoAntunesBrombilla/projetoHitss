@@ -41,8 +41,21 @@ This project was developed using React Native and Typescript as a challenge to l
 <img src="https://user-images.githubusercontent.com/76003107/136227991-4f2b7539-9ead-4494-a648-95bb6c0268dc.gif"  width="300px" />
 </p>
 
+### How to install and run on your machine?
+
+- First you will need android studio, Git and NodeJs
+- Then you can clone the repo
+- In the root folder simply run yarn
+- Open an emulador and run the project on it
+
 ### Helping
 
 A special thanks to [Salomão](https://github.com/salomaoluiz) for helping me with testing and redux saga :raised_hands:	!
 
-This project isnt finished yet so stay tunned!
+### Some final thoughts for now:
+
+This project isn't finished yet, but for now i will be learning more UI/UX testing and infra related stuff so i can go back to this project and improve on what i already have. Any constructive criticism is welcome. 
+
+Tks for your time!
+
+By :call_me_hand:
