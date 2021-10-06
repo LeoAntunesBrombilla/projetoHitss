@@ -4,7 +4,7 @@ export const DetailsInfoContainer = styled.View`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 80%;
+  height: 50%;
   justify-content: center;
   align-items: center;
   align-self: center;
