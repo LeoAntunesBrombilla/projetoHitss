@@ -1,6 +1,7 @@
 import {characterListActions} from '.';
 
 import {
+  Character,
   CharacterListAction,
   CharacterListReducer,
   CharacterListState,
@@ -9,6 +10,7 @@ import {
 
 const initialState: CharacterListState = {
   characterLists: [],
+  favoriteCharacters: [],
   isLoading: false,
   error: undefined,
   previous: null,
@@ -30,6 +32,31 @@ const setCharacterLists: CharacterListReducer = (state, action) => {
   return {
     ...state,
     characterLists: payload.characterLists,
+    isLoading: false,
+    error: undefined,
+  };
+};
+
+const favoriteArrays: Character[] = [];
+
+const setFavorite: CharacterListReducer = (state, action) => {
+  const {payload} = action as unknown as ReturnType<
+    typeof characterListActions.setFavorite
+  >;
+
+  let index = favoriteArrays.findIndex(
+    character => character.name === payload.Character.name,
+  );
+
+  if (index === -1) {
+    favoriteArrays.push(payload.Character);
+  } else {
+    favoriteArrays.splice(index, 1);
+  }
+
+  return {
+    ...state,
+    favoriteCharacters: favoriteArrays,
     isLoading: false,
     error: undefined,
   };
@@ -65,6 +92,7 @@ const CharacterListMap = new Map([
   [CharacterListTypes.REQUEST_CHARACTERS, requestCharacters],
   [CharacterListTypes.SET_CHARACTER_LISTS, setCharacterLists],
   [CharacterListTypes.SET_PAGE_INFO, setPageInfo],
+  [CharacterListTypes.SET_FAVORITE, setFavorite],
 ]);
 
 const reducer = (

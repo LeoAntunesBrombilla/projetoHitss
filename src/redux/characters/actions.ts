@@ -1,4 +1,9 @@
-import {CharacterListTypes, CharacterListAction, CharacterLists} from './types';
+import {
+  CharacterListTypes,
+  CharacterListAction,
+  CharacterLists,
+  Character,
+} from './types';
 
 const actions = {
   setError: (error?: string): CharacterListAction<{error?: string}> => ({
@@ -27,11 +32,14 @@ const actions = {
     type: CharacterListTypes.SET_PAGE_INFO,
     payload,
   }),
-  /*
-  addFavorite: () => ({
-    type: CharacterListTypes.ADD_FAVORITE,
+  setFavorite: (payload: {
+    Character: Character;
+  }): CharacterListAction<{
+    Character: Character;
+  }> => ({
+    type: CharacterListTypes.SET_FAVORITE,
+    payload,
   }),
-  */
 };
 
 export default actions;
