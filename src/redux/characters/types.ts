@@ -6,8 +6,6 @@ export enum CharacterListTypes {
   SET_PAGE_INFO = '@@CHARACTERS/SET_PAGE_INFO',
 }
 
-//TODO remove isFavorite attribute
-
 export type Character = {
   name: string;
   height: string;
