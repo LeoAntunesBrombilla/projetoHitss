@@ -30,7 +30,11 @@ jobs:
           prettier: true
       
       - name: CodeCov
-      - uses: actions/checkout@master
+        uses: actions/checkout@master
       - uses: codecov/codecov-action@v2
-      
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          files: ./coverage/clover.xml # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
       

@@ -29,38 +29,7 @@ const Home: React.FC = () => {
     }
   };
 
-  return (
-    <View>
-      <PaperTitle text={'Lista de Personagens'} alignCenter={true} />
-      {charactersList.map(character => {
-        return (
-          <>
-            <Text key={character.birth_year}> {character.name} </Text>
-          </>
-        );
-      })}
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-        }}>
-        <View style={styles.buttonsContainer}>
-          <Button
-            onPress={prevPagina}
-            title={'Página Anterior'}
-            color={'black'}
-          />
-          <Button onPress={proxPagina} title="Página Seguinte" />
-        </View>
-
-        {/*
-          <Button onPress={prevPagina} title={'Pagina Anterior'} />
-          <Button onPress={proxPagina} label={'Proxima Pagina'} />
-          */}
-      </View>
-    </View>
-  );
+  return <View></View>;
 };
 
 const styles = StyleSheet.create({
