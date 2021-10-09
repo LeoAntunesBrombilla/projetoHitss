@@ -16,19 +16,6 @@ const Home: React.FC = () => {
     dispatch(characterListActions.requestCharacters());
   }, [dispatch]);
 
-  const proxPagina = () => {
-    if (next) {
-      dispatch(characterListActions.requestCharacters(next));
-    }
-    return null;
-  };
-
-  const prevPagina = () => {
-    if (previous) {
-      dispatch(characterListActions.requestCharacters(previous));
-    }
-  };
-
   return <View></View>;
 };
 
