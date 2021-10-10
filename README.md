@@ -5,6 +5,7 @@
 <p align="center">
   <img src="https://img.shields.io/codecov/c/github/LeoAntunesBrombilla/projetoHitss" />
   <img src="https://sonarcloud.io/api/project_badges/measure?project=LeoAntunesBrombilla_projetoHitss&metric=alert_status" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=LeoAntunesBrombilla_projetoHitss&metric=bugs" />
   <img src="https://sonarcloud.io/images/project_badges/sonarcloud-white.svg" height="20px" />
 </p>
 
