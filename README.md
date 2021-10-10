@@ -3,7 +3,7 @@
 <p/>
 
 ### Objective: 
-This project was developed using React Native and Typescript as a challenge to learn how to deal with redux, redux sagas as well as Typescript. I also work with jest and react native testing library, so all of the components are tested and almost all of the redux part is tested as well.
+This project was developed using React Native and Typescript as a challenge to learn how to deal with redux, redux sagas as well as Typescript. I also work with jest and react native testing library, so all of the components are tested and almost all of the redux part is tested as well. Beyond that, I setup a simple CI workflow using github actions + sonarcloud and CodeCov
 
 ## Tecnologies and API Used:
 
