@@ -30,7 +30,6 @@ const Favoritos: React.FC = () => {
   const renderCharacters = ({item}: {item: Character}) => {
     return (
       <CharacterItem
-        onPress={() => {}}
         key={item.name}
         text={item.name}
         page={'favorites'}
