@@ -8,8 +8,10 @@ import Favoritos from './src/pages/favoriteCharacters';
 import Detalhes from './src/pages/details';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
 import {Character} from './src/redux/characters/types';
 
 const {store} = configureStore();
