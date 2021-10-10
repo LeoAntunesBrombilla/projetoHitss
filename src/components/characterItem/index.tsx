@@ -11,8 +11,6 @@ interface Props {
   page?: string;
 }
 
-//TODO mudar nome de onPress e onClick, text
-
 const CharacterItem = (props: Props) => {
   return (
     <Container>
