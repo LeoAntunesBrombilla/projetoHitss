@@ -6,7 +6,7 @@ import {Item, Container, IsFavoriteButton, DetailsButton} from './styles';
 
 interface Props {
   text: string;
-  onPress: () => void;
+  onPress?: () => void;
   onClick?: (item: any) => void;
   page?: string;
 }
