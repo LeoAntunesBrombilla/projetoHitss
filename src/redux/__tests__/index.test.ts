@@ -9,7 +9,7 @@ jest.mock('@react-native-community/async-storage', () => ({}));
 
 import {rootReducer} from '../reducers';
 
-describe('Fluxo da store', () => {
+describe('Flow if the store', () => {
   const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
